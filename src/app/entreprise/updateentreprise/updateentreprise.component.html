@@ -1,0 +1,36 @@
+<h3>Modification données entreprise</h3>
+<form>
+ 
+    <input type="hidden" class="form-control" id="id" name="id" [(ngModel)]="entreprises._id">
+  <div class="form-group">
+    <div class="col-sm-2">
+    <label for="nom">Nom :</label>
+    <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="entreprises.nom">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+    <label for="activite">Activité :</label>
+    <input type="text" class="form-control" id="activite" name="activite" [(ngModel)]="entreprises.activite">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+    <label for="formejur">Forme juridique :</label>
+    <input type="text" class="form-control" id="formejur" name="formejur" [(ngModel)]="entreprises.formejur">
+    </div>
+  </div>
+  <div class="form-group">
+      <div class="col-sm-2">
+      <label for="score">Score :</label>
+      <input type="number" class="form-control" id="score" name="score" [(ngModel)]="entreprises.score">
+      </div>
+    </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+  <button type="submit" class="btn btn-success"(click)="modifierentreprise()">MAJ</button>
+  </div>
+  </div>
+ 
+</form>
+

@@ -1,0 +1,47 @@
+<h3><a class="btn btn-default" routerLink="/menu">Menu</a></h3>
+<h3>Liste des entreprises</h3>
+<div class="container">
+  <div class="col-md-2">
+    <input type="button"
+           value="Ajouter"
+           class="btn btn-success" routerLink="/addentreprise">
+  </div>
+  <div>
+    <p></p>
+  </div>
+  <table class="table" id="example">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Activité</th>
+      <th>Forme juridique</th>
+      <th>Score</th>
+      <th>Modifier</th>
+      <th>Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+     
+    <tr class="table-life"  *ngFor="let e of entreprises">
+      <th scope="row">{{e.nom}}</th>
+      <td>{{e.activite}}</td>
+      <td>{{e.formejur}}</td>
+      <td>{{e.score}}</td>
+      <td>
+        <input type="button"
+               value="Modifier"
+               class="btn btn-info btn-sm"
+               [routerLink]="['/menu/editentreprise/',e._id]">
+      </td>
+      <td>
+        <input type="button"
+               value="Supprimer"
+               class="btn btn-danger btn-sm"
+               (click)="DeleteEntreprise(e._id)">
+      </td>
+    </tr>
+        
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</div>

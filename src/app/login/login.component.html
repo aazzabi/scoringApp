@@ -1,0 +1,25 @@
+<h2 class="text-center">Login</h2>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+            <form (ngSubmit)="postdata()" >
+                <div class="form-group">
+                    <label for="email">User Name</label>
+                    <input type="text" id="email" name="email" [(ngModel)]="Login.email" class="form-control input-sm" placeholder="Email Address">
+ 
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="password" id="pwd"  name="pwd" [(ngModel)]="Login.pwd" class="form-control input-sm" placeholder="Password">
+ 
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+ 
+</div>
