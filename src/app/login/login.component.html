@@ -1,25 +1,25 @@
-<h2 class="text-center">Login</h2>
+<h2 class="text-center">Se connecter</h2>
 <div class="row">
     <div class="col-md-3">
     </div>
-    <div class="col-md-6 col-md-offset-3">
-        <div class="jumbotron">
-            <form (ngSubmit)="postdata()" >
+    <div class="col-md-6">
+        <div class="jumbotron" style="padding: 50px">
+            <form (ngSubmit)="f.form.valid && Login()"  #f="ngForm">
                 <div class="form-group">
-                    <label for="email">User Name</label>
-                    <input type="text" id="email" name="email" [(ngModel)]="Login.email" class="form-control input-sm" placeholder="Email Address">
- 
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email"  [(ngModel)]="model.email"   class="form-control input-sm" placeholder="Adresse email">
+
                 </div>
                 <div class="form-group">
-                    <label for="pwd">Password</label>
-                    <input type="password" id="pwd"  name="pwd" [(ngModel)]="Login.pwd" class="form-control input-sm" placeholder="Password">
- 
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password"  name="pwd" [(ngModel)]="model.password" class="form-control input-sm" placeholder="Mot de passe">
+
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Confirmer</button>
             </form>
         </div>
     </div>
     <div class="col-md-3">
     </div>
- 
+
 </div>

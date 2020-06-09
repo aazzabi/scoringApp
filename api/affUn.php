@@ -8,9 +8,16 @@ $cnx = new connexion();
 $pdo = $cnx->CNXbase();
 
 $id = $_GET['id'];
-$req = "SELECT * FROM entreprises where id='$id'";
+$req = "SELECT * FROM user where id='$id'";
 $res = $pdo->query($req);
 $row = $res->fetch();
 
-echo '{"_id":"' . $row[0] . '","nom":"' . $row[1] . '","activite":"' . $row[2] . '","formejur":"' . $row[3] . '","score":"' . $row[4] . '"}';
+
+echo  '{"id":"' . $row['id'] . '"
+         ,"nom":"' . $row['nom'] . '"
+         ,"prenom":"' . $row['prenom'] . '"
+         ,"email":"' . $row['email'] . '"
+         ,"username":"' . $row['username'] . '"
+         ,"role":"' . $row['role']
+         . '"},';
 ?>

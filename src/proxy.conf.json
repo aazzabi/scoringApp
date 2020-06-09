@@ -1,0 +1,8 @@
+{
+  "/crudappEntrepriseLog/api/*": {
+    "target": "http://localhost/",
+    "secure": false,
+    "changeOrigin": false,
+    "logLevel": "debug"
+  }
+}

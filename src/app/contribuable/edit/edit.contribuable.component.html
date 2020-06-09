@@ -1,0 +1,81 @@
+<form [formGroup]="contribuableEdit">
+  <div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+
+    <div class="pl-lg-4">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="form-control-label">Libellé contribuableEdit</label>
+            <input type="text" class="form-control form-control-sm form-control-alternative" placeholder="Libellé"
+                   name="libelle"
+                   formControlName="libelle"/>
+          </div>
+          <div
+            *ngIf="contribuableEdit.controls.libelle.touched && contribuableEdit.controls['libelle'].errors?.minlength">
+            Le libelle doit etre minimum de taille 3
+          </div>
+          <div
+            *ngIf="contribuableEdit.controls.libelle.touched && contribuableEdit.controls['libelle'].errors?.maxlength">
+            Le libelle ne peut pas dépasser 10 caractéres
+          </div>
+          <div
+            *ngIf="contribuableEdit.controls.libelle.touched && contribuableEdit.controls['libelle'].errors?.required">
+            Veuillez renseigner ce champ
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="form-control-label">Activité du contribuable</label>
+            <input type="text" class="form-control form-control-alternative" placeholder="Activité"
+                   name="activite" formControlName="activite"/>
+            <div
+              *ngIf="contribuableEdit.controls.activite.touched && contribuableEdit.controls['activite'].errors?.minlength">
+              Le activite doit etre minimum de taille 3
+            </div>
+            <div
+              *ngIf="contribuableEdit.controls.activite.touched && contribuableEdit.controls['activite'].errors?.maxlength">
+              Le activite ne peut pas dépasser 10 caractéres
+            </div>
+            <div
+              *ngIf="contribuableEdit.controls.activite.touched && contribuableEdit.controls['activite'].errors?.required">
+              Veuillez renseigner ce champ
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="form-control-label">Forme juridique</label>
+            <select formControlName="formeJuridique" class="form-control form-control-alternative">
+              <option [selected]="contribuableToEdit.formeJuridique === 'SARL ou GIE'" value="SARL ou GIE">SARL ou GIE
+              </option>
+              <option [selected]="contribuableToEdit.formeJuridique === 'Entreprise publique'"
+                      value="Entreprise publique">Entreprise publique
+              </option>
+              <option [selected]="contribuableToEdit.formeJuridique === 'Autre forme juridique hors SA'"
+                      value="Autre forme juridique hors SA">Autre forme juridique hors SA
+              </option>
+              <option [selected]="contribuableToEdit.formeJuridique === 'Societe Anonyme'" value="Societe Anonyme">
+                Société Anonyme
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal-footer">
+    <button class="btn  btn-warning float-right" [disabled]="!contribuableEdit.valid"
+            (click)="confirm($event)">Confirmer
+    </button>
+    <button type="button" class="btn btn-outline-darks" (click)="activeModal.close('Close click')">Fermer</button>
+  </div>
+</form>

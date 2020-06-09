@@ -18,16 +18,13 @@ export class EntrepriseService {
   }
 
   getEntreprise(id: number): Observable<Entreprise> {
-    const params = new HttpParams()
-      .set('id', id.toString());
+    const params = new HttpParams().set('id', id.toString());
     return this.http.get<Entreprise>('http://localhost/crudappEntrepriseLog/api/affUn', {params: params});
-
-
   }
 
 
   ListEntreprise(): Observable<Entreprise[]> {
-    return this.http.get<Entreprise[]>('http://localhost/crudappEntrepriseLog/api/liste').pipe(
+    return this.http.get<Entreprise[]>('http://localhost/crudappEntrepriseLog/api/contribuables/all').pipe(
       map((res) => {
         this.entreprises = res;
         console.log('res', res);

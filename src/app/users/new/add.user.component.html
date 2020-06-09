@@ -1,0 +1,118 @@
+<div class="header bg-gradient-danger pb-8 pt-3 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body row">
+      <div class="col-md-8">
+      </div>
+      <div class="col-md-4 text-right">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7"  style="padding:30px 30px">
+      <div class="card shadow"  style="padding:10px 30px">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <h3 class="mb-0">Ajouter un utilisateur</h3>
+            </div>
+            <div class="col-md-4 text-right">
+              <a class="btn btn-secondary" routerLink="/users">Retour a la liste</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="user">
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="form-control-label">Nom</label>
+                    <input type="text" class="form-control form-control-alternative" placeholder="Nom" name="nom" formControlName="nom"/>
+                  </div>
+                  <div *ngIf="user.controls.nom.touched && user.controls['nom'].errors?.minlength">
+                    Le nom doit etre minimum de taille 3
+                  </div>
+                  <div *ngIf="user.controls.nom.touched && user.controls['nom'].errors?.maxlength">
+                    Le nom ne peut pas dépasser 10 caractéres
+                  </div>
+                  <div *ngIf="user.controls.nom.touched && user.controls['nom'].errors?.required">
+                    Veuillez renseigner ce champ
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="form-control-label" >Prenom</label>
+                    <input type="text" class="form-control form-control-alternative" placeholder="Prenom" name="prenom" formControlName="prenom"/>
+
+                    <div *ngIf="user.controls.prenom.touched && user.controls['prenom'].errors?.minlength">
+                      Le prenom doit etre minimum de taille 3
+                    </div>
+                    <div *ngIf="user.controls.prenom.touched && user.controls['prenom'].errors?.maxlength">
+                      Le prenom ne peut pas dépasser 10 caractéres
+                    </div>
+                    <div *ngIf="user.controls.prenom.touched && user.controls['prenom'].errors?.required">
+                      Veuillez renseigner ce champ
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="form-control-label" >Username</label>
+                    <input
+                      type="text"
+                      class="form-control form-control-alternative"
+                      placeholder="Username"
+                      name="username"
+                      formControlName="username"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="form-control-label" >Role</label>
+                    <select formControlName="role" class="form-control form-control-alternative">
+                      <option value="ADMIN">Administrateur</option>
+                      <option value="AGENT">Agent</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" >Email</label>
+                    <input type="email" class="form-control form-control-alternative" placeholder="Email" name="email" formControlName="email"/>
+                    <div *ngIf="user.controls['email'].errors?.email">
+                      Veuillez renseigner une adresse mail valide
+                    </div>
+                    <div *ngIf="user.controls.email.touched && user.controls['email'].errors?.required">
+                      Veuillez renseigner ce champ
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-control-label">Mot de passe</label>
+                    <input type="password" class="form-control form-control-alternative" placeholder="Mot de passe" name="password" formControlName="password"/>
+                  </div>
+                  <div *ngIf="user.controls.password.dirty && user.controls['password'].errors?.required">
+                    Veuillez renseigner ce champ
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-control-label" >Confirmer votre mot de passe</label>
+                    <input type="password" class="form-control form-control-alternative" placeholder="Confirmer mot de passe" name="confirmPassword" formControlName="confirmPassword"/>
+                    <div *ngIf="user.controls['confirmPassword'].errors">
+                      Le mot de passe et sa confimation ne sont pas les mémes
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <button class="btn  btn-primary float-right bg-success text-white " [disabled]="!user.valid" (click)="confirm($event)">Confirmer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+</div>

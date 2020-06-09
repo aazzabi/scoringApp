@@ -1,0 +1,113 @@
+<form [formGroup]="userEdit">
+  <div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-control-label">Nom</label>
+          <input type="text" class="form-control form-control-alternative" placeholder="Nom" name="nom"
+                 formControlName="nom"/>
+        </div>
+        <div *ngIf="userEdit.controls.nom.touched && userEdit.controls['nom'].errors?.minlength">
+          Le nom doit etre minimum de taille 3
+        </div>
+        <div *ngIf="userEdit.controls.nom.touched && userEdit.controls['nom'].errors?.maxlength">
+          Le nom ne peut pas dépasser 10 caractéres
+        </div>
+        <div *ngIf="userEdit.controls.nom.touched && userEdit.controls['nom'].errors?.required">
+          Veuillez renseigner ce champ
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-control-label">Prenom</label>
+          <input type="text" class="form-control form-control-alternative" placeholder="Prenom" name="prenom"
+                 formControlName="prenom"/>
+
+          <div *ngIf="userEdit.controls.prenom.touched && userEdit.controls['prenom'].errors?.minlength">
+            Le prenom doit etre minimum de taille 3
+          </div>
+          <div *ngIf="userEdit.controls.prenom.touched && userEdit.controls['prenom'].errors?.maxlength">
+            Le prenom ne peut pas dépasser 10 caractéres
+          </div>
+          <div *ngIf="userEdit.controls.prenom.touched && userEdit.controls['prenom'].errors?.required">
+            Veuillez renseigner ce champ
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-control-label">Username</label>
+          <input
+            type="text"
+            class="form-control form-control-alternative"
+            placeholder="Username"
+            name="username"
+            formControlName="username"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-control-label">Role</label>
+          <select formControlName="role" class="form-control form-control-alternative">
+            <option [selected]="userToEdit.role === 'ADMIN'" value="ADMIN">Administrateur</option>
+            <option [selected]="userToEdit.role === 'AGENT'" value="AGENT">Agent</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="form-control-label">Email</label>
+          <input type="email" class="form-control form-control-alternative" placeholder="Email" name="email"
+                 formControlName="email"/>
+          <div *ngIf="userEdit.controls['email'].errors?.email">
+            Veuillez renseigner une adresse mail valide
+          </div>
+          <div *ngIf="userEdit.controls.email.touched && userEdit.controls['email'].errors?.required">
+            Veuillez renseigner ce champ
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-control-label">Mot de passe</label>
+          <input type="password" class="form-control form-control-alternative" placeholder="Mot de passe"
+                 name="password" formControlName="password"/>
+        </div>
+        <div *ngIf="userEdit.controls.password.dirty && userEdit.controls['password'].errors?.required">
+          Veuillez renseigner ce champ
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-control-label">Confirmer votre mot de passe</label>
+          <input type="password" class="form-control form-control-alternative"
+                 placeholder="Confirmer mot de passe" name="confirmPassword" formControlName="confirmPassword"/>
+          <div *ngIf="userEdit.controls['confirmPassword'].errors">
+            Le mot de passe et sa confimation ne sont pas les mémes
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal-footer">
+    <button class="btn  btn-warning float-right" [disabled]="!userEdit.valid" (click)="confirmEdit($event)">Confirmer</button>
+    <button type="button" class="btn btn-outline-darks" (click)="activeModal.close('Close click')">Fermer</button>
+  </div>
+</form>

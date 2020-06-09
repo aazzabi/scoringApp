@@ -1,0 +1,78 @@
+<div class="header bg-gradient-danger pb-8 pt-3 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body row">
+      <div class="col-md-8">
+      </div>
+      <div class="col-md-4 text-right">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7"  style="padding:30px 30px">
+  <div class="card  shadow"  style="padding:10px 30px">
+    <div class="card-header bg-white border-0">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <h3 class="mb-0">Ajouter un contribuable</h3>
+        </div>
+        <div class="col-md-4 text-right">
+          <a class="btn btn-secondary" routerLink="/contribuable">Retour a la liste</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="contribuable">
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-control-label">Libellé contribuable</label>
+                <input type="text" class="form-control form-control-alternative" placeholder="Libellé" name="libelle" formControlName="libelle"/>
+              </div>
+              <div *ngIf="contribuable.controls.libelle.touched && contribuable.controls['libelle'].errors?.minlength">
+                Le libelle doit etre minimum de taille 3
+              </div>
+              <div *ngIf="contribuable.controls.libelle.touched && contribuable.controls['libelle'].errors?.maxlength">
+                Le libelle ne peut pas dépasser 10 caractéres
+              </div>
+              <div *ngIf="contribuable.controls.libelle.touched && contribuable.controls['libelle'].errors?.required">
+                Veuillez renseigner ce champ
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-control-label" >Activité du contribuable</label>
+                <input type="text" class="form-control form-control-alternative" placeholder="Activité" name="activite" formControlName="activite"/>
+                <div *ngIf="contribuable.controls.activite.touched && contribuable.controls['activite'].errors?.minlength">
+                  Le activite doit etre minimum de taille 3
+                </div>
+                <div *ngIf="contribuable.controls.activite.touched && contribuable.controls['activite'].errors?.maxlength">
+                  Le activite ne peut pas dépasser 10 caractéres
+                </div>
+                <div *ngIf="contribuable.controls.activite.touched && contribuable.controls['activite'].errors?.required">
+                  Veuillez renseigner ce champ
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-control-label" >Forme juridique</label>
+                <select formControlName="formeJuridique" class="form-control form-control-alternative">
+                  <option value="SARL ou GIE">SARL ou GIE</option>
+                  <option value="Entreprise publique">Entreprise publique</option>
+                  <option value="Autre forme juridique hors SA">Autre forme juridique hors SA</option>
+                  <option value="Société Anonyme">Société Anonyme</option>
+<!--                  <option value="EI">EI</option>-->
+<!--                  <option value="EIRL">EIRL</option>-->
+<!--                  <option value="SAS/SASU">SAS / SASU</option>-->
+<!--                  <option value="SARL/EURL">SARL / EURL</option>-->
+                </select>
+              </div>
+            </div>
+          </div>
+          <button class="btn  btn-primary float-right bg-success text-white" [disabled]="!contribuable.valid" (click)="confirm($event)">Confirmer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

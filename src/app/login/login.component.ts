@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/User';
-import { Router } from '@angular/router';
-import { DataserviceService } from 'src/app/services/dataservice.service';
+import {Component, OnInit} from '@angular/core';
+import {User} from 'src/app/models/User';
+import {Router} from '@angular/router';
+import {DataserviceService} from 'src/app/services/dataservice.service';
+import {LoginService} from '../services/security/login.service';
+import {AlertService} from '../services/common/AlertService';
 
 @Component({
   selector: 'app-login',
@@ -9,18 +11,35 @@ import { DataserviceService } from 'src/app/services/dataservice.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  login: User = new User();
+  model: any = {};
+  returnUrl = '';
 
-  constructor(private dataService: DataserviceService,private router:Router) {
-      }
-      Login: User = new User();
+  constructor(private dataService: DataserviceService,
+              private alertService: AlertService,
+              private loginService: LoginService,
+              private router: Router) {
+  }
+
   ngOnInit() {
   }
-  postdata()
-  {
-    this.dataService.userlogin(this.Login).subscribe(data=>this.router.navigate(['/menu'])),
-          error => {
-              alert("User name or password is incorrect")
-          };
+
+
+  Login() {
+    this.loginService.login(this.model.email, this.model.password)
+      .subscribe(
+        (response) => {
+          if (this.returnUrl) {
+            this.router.navigateByUrl(this.returnUrl);
+          } else {
+            this.router.navigate(['/contribuable']);
+          }
+        },
+        error => {
+          console.log(error, 'error');
+          this.alertService.error(error);
+        }
+      );
   }
 
 
