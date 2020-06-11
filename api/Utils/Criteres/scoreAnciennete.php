@@ -2,14 +2,20 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT");
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
-
-require_once('../connect.php ');
-require_once  '../Models/Contribuable.php';
+//header('Content-type: application/json');
+include_once getcwd().'../../Models/User.php';
+require_once getcwd().'../../connect.php ' ;
 
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
 
-$contribuable = new Contribuable($pdo);
+
 $id = $_GET['id'];
 
-$contribuable->delete($id);
+//$user = new User($pdo);
+//$v = $user->getById($id);
+//echo json_encode($v, true);
+
+echo $id;
+
+//echo 5;

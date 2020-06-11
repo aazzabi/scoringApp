@@ -1,19 +1,15 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT");
-header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
+// headers to tell that result is JSON
 header('Content-type: application/json');
-
 require_once('../connect.php ');
+require_once '../Models/Critere.php ';
+
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
 
 $id = $_GET['id'];
-$req = "SELECT c.id, c.libelle , c.isActive , cre.recette
-               FROM `critere`as c, `creance`as cre
-               WHERE c.id = $id and c.creance_id = cre.id";
-$res = $pdo->query($req);
-$row = $res->fetch();
+$critere = new Critere($pdo);
 
-echo '{"id":"' . $row[0] . '" ,"libelle":"' . $row[1] . '" ,"isActive":"' . $row[2] .'"},';
+echo json_encode($critere->getById($id),true);
 ?>

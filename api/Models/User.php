@@ -20,6 +20,20 @@ class User{
         $this->conn = $db;
     }
 
+
+    public function getById($i)
+    {
+        $query = "SELECT * FROM user where  id=:id";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $i);
+
+        $stmt->execute();
+        $row = $stmt->fetch();
+        echo '{"id":"' . $row[0] . '" ,"libelle":"' . $row[1] . '" ,"isActive":"' . $row[2] .'"},';
+    }
+
+
     // create new user record
     function create(){
         // insert query
@@ -103,6 +117,25 @@ class User{
         }
         // return false if email does not exist in the database
         return false;
+    }
+
+
+    public function update($c) {
+        if($c->password)  {
+            $password = password_hash($c->password, PASSWORD_BCRYPT) ;
+            $req = "UPDATE user SET nom='$c->nom',prenom='$c->prenom',email='$c->email' , role='$c->role', password='$c->password' ,username='$c->username'  WHERE id='$c->id'";
+        } else {
+            $creq = "UPDATE user SET nom='$c->nom',prenom='$c->prenom',email='$c->email' ,role='$c->role' ,username='$c->username'  WHERE id='$c->id'";
+        }
+        $res = $this->conn->exec($req);
+        echo $res;
+        if ($res) {
+            http_response_code(200);
+            echo  json_encode(array('message' => 'Ce contribuable a été mis a jour avec succés'));
+        } else {
+            return http_response_code(422);
+            echo json_encode("{message:Un probléme a survenu lors de la modification, veuillez réessayer ulteriérement}");
+        }
     }
 
 // create() method will be here

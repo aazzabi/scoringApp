@@ -1,5 +1,12 @@
 {
-    "require": {
-        "firebase/php-jwt": "^5.2"
+  "require": {
+    "vlucas/phpdotenv": "^2.4",
+    "firebase/php-jwt": "^5.2",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Src\\": "Src/"
     }
+  }
 }

@@ -5,16 +5,12 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 header('Content-type: application/json');
 
 require_once('../connect.php ');
+require_once  '../Models/Contribuable.php';
+
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
+$contribuable = new Contribuable($pdo);
 
 $id = $_GET['id'];
-$req = "SELECT * FROM contribuable where id='$id'";
-$res = $pdo->query($req);
-$row = $res->fetch();
-
-echo '{"id":"' . $row[0] . '"
-         ,"libelle":"' . $row[1] . '"
-         ,"formeJuridique":"' . $row[2] . '"
-         ,"activite":"' . $row[3] . '"},';
+echo json_encode($contribuable->getById($id), true);
 ?>
