@@ -39,7 +39,7 @@ class Contribuable
 
         // execute the query, also check if query was successful
         if ($stmt->execute()) {
-            return  json_encode(array('message' => 'Le contribuable a été crée avec succés'));
+            return json_encode(array('message' => 'Le contribuable a été crée avec succés'));
         }
         return json_encode("{message:Un probléme a survenu lors de la création}");
     }
@@ -48,35 +48,27 @@ class Contribuable
     {
         $query = "SELECT * FROM contribuable";
 
-        $stmt = $this->conn->query($query);
-        $stmt->execute();
-
-        $m = '[';
-        foreach ($stmt as $row) {
-            $m = $m . '{"id":"' . $row['id'] . '"
-            ,"libelle":"' . $row['libelle'] . '"
-            ,"formeJuridique":"' . $row['formeJuridique'] . '"
-            ,"activite":"' . $row['activite'] . '"},';
+        try {
+            $stmt = $this->conn->query($query);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            exit($e->getMessage());
         }
-        $m = substr($m, 0, strlen($m) - 1);
-        $m = $m . ']';
-        echo $m;
     }
 
     public function getById($i)
     {
         $query = "SELECT * FROM contribuable where  id=:id";
 
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $i);
-
-        $stmt->execute();
-        $row = $stmt->fetch();
-        echo '{"id":"' . $row[0] . '"
-             ,"libelle":"' . $row[1] . '"
-             ,"formeJuridique":"' . $row[2] . '"
-             ,"activite":"' . $row[3] . '"
-        },';
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':id', $i);
+            $stmt->execute();
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            exit($e->getMessage());
+        }
     }
 
     public function delete($i)
@@ -95,11 +87,11 @@ class Contribuable
 
     public function update($c)
     {
-        $req = "UPDATE contribuable 
+        $req = "UPDATE contribuable
     SET libelle='$c->libelle',activite='$c->activite',formeJuridique='$c->formeJuridique'  WHERE id='$c->id'";
         $res = $this->conn->exec($req);
         echo $res;
-        if ($res) {
+        if ($res === 0) {
             http_response_code(200);
             echo json_encode(array('message' => 'Ce contribuable a été mis a jour avec succés'));
         } else {

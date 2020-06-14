@@ -4,12 +4,10 @@ header("Access-Control-Allow-Origin: *");
 header('Content-type: application/json');
 require_once('../connect.php ');
 require_once '../Models/Critere.php ';
-require_once '../Models/User.php ';
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
 
 $critere = new Critere($pdo);
 echo json_encode($critere->getAll(), true);
-//echo json_encode($critere->getById(2), true);
 
 ?>

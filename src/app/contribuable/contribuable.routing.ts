@@ -11,7 +11,9 @@ import {GetContribuableByIdResolverService} from '../services/resolvers/get.cont
 const routes: Routes = [
   {path: 'add', component: AddContribuableComponent},
   {path: 'edit/:id', component: EditContribuableComponent, resolve : { contribuable: GetContribuableByIdResolverService}},
-  {path: '', component: AllContribuableComponent, resolve : { contribuables: AllContribuablesResolverService }, canActivate: [AuthGuard]},
+  {path: '', component: AllContribuableComponent,
+    resolve : { contribuables: AllContribuablesResolverService }, canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

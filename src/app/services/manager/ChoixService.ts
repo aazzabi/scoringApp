@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {User} from '../../models/User';
 
 
 const httpOptions = {
@@ -12,15 +11,19 @@ const httpOptions = {
 };
 
 @Injectable()
-export class UsersService {
+export class ChoixService {
 
   constructor(private http: HttpClient) {
   }
 
-  url = '/crudappEntrepriseLog/api/users/';
+  url = '/crudappEntrepriseLog/api/choix/';
 
   getAll() {
     return this.http.get<any[]>(this.url + 'all');
+  }
+
+  getAllChoixByCritere(id: number) {
+    return this.http.get<any[]>(this.url + 'allByCritereId?id=' + id);
   }
 
   edit(user) {

@@ -21,6 +21,16 @@ class User{
     }
 
 
+    public function getAll()
+    {
+        $query = "SELECT * FROM user";
+
+        $stmt = $this->conn->query($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     public function getById($i)
     {
         $query = "SELECT * FROM user where  id=:id";
@@ -29,8 +39,7 @@ class User{
         $stmt->bindParam(':id', $i);
 
         $stmt->execute();
-        $row = $stmt->fetch();
-        echo '{"id":"' . $row[0] . '" ,"libelle":"' . $row[1] . '" ,"isActive":"' . $row[2] .'"},';
+         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
 
@@ -138,5 +147,18 @@ class User{
         }
     }
 
+    public function delete($i)
+    {
+        $query = "DELETE FROM user where  id=:id";
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':id', $i);
+            $stmt->execute();
+            $stmt->fetch();
+            return $stmt->fetch();
+        } catch (\PDOException $e) {
+            exit($e->getMessage());
+        }
+    }
 // create() method will be here
 }

@@ -9,7 +9,7 @@ import {AllUsersResolverService} from '../services/resolvers/all.users.resolver.
 import {GetUserByIdResolverService} from '../services/resolvers/get.user.by.id.resolver.service';
 
 const routes: Routes = [
-  {path: '', component: AllUserComponent, resolve: {users: AllUsersResolverService}},
+  {path: 'all', component: AllUserComponent, resolve: {users: AllUsersResolverService}},
   {path: 'add', component: AddUserComponent/*, canActivate: [AuthguardGuard]*/},
   {path: 'edit/:id', component: EditUserComponent, /*resolve: {user: GetUserByIdResolverService}*/},
 ];

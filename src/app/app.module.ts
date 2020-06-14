@@ -31,6 +31,14 @@ import {UsersService} from './services/manager/UserService';
 import {GetUserByIdResolverService} from './services/resolvers/get.user.by.id.resolver.service';
 import {GetContribuableByIdResolverService} from './services/resolvers/get.contribuable.by.id.resolver.service';
 import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+import {CritereModule} from './Critere/critere.module';
+import {CriteresService} from './services/manager/CriteresService';
+import {AllCritereResolverService} from './services/resolvers/all.criteres.resolver.service';
+import {GetCritereByIdResolverService} from './services/resolvers/get.critere.by.id.resolver.service';
+import {GetChoixByIdCritereResolverService} from './services/resolvers/get.choix.by.id.critere.resolver.service';
+import {ChoixService} from './services/manager/ChoixService';
+import {CreancesService} from './services/manager/CreancesService';
+import {AllCreancesResolverService} from './services/resolvers/all.creances.resolver.service';
 
 @NgModule({
   declarations: [
@@ -42,6 +50,7 @@ import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    CritereModule,
     DataTablesModule,
     ROUTING,
     HttpClientModule,
@@ -62,7 +71,14 @@ import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
     RoleGuard,
     UsersService,
     ContribuableService,
+    ChoixService,
+    CreancesService,
+    CriteresService,
+    AllCritereResolverService,
+    GetCritereByIdResolverService,
+    GetChoixByIdCritereResolverService,
     AllUsersResolverService,
+    AllCreancesResolverService,
     GetUserByIdResolverService,
     AllContribuablesResolverService,
     GetContribuableByIdResolverService,

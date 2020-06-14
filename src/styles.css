@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+.shadow {
+  box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07)!important;
+}
+.mat-form-field , .card {
+  border: 0px;
+}
+
+
+fieldset.fdCard {
+  padding: 25px !important;
+  border:  1px solid #e6e6e6 !important;
+  border-radius: 20px;
+  margin-bottom: 30px !important;
+}
+fieldset.active {
+  box-shadow: 0 0 0 2px #0071c2 !important;
+}
+.active {
+  box-shadow: 0 0 0 2px #0071c2 !important;
+}
+legend {
+  font-weight: 500 !important;
+  font-size: 20px !important;
+}
+.badge {
+  margin-right: 5px;
+}

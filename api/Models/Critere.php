@@ -28,8 +28,7 @@ class Critere
     function create()
     {
         // insert query
-        $query = "INSERT INTO critere (libelle, isActive, critereFilename) 
-values (:libelle,:isActive,:critereFilename)";
+        $query = "INSERT INTO critere (libelle, isActive, critereFilename) values (:libelle,:isActive,:critereFilename)";
 
         // prepare the query
         $stmt = $this->conn->prepare($query);
@@ -46,53 +45,52 @@ values (:libelle,:isActive,:critereFilename)";
 
         // execute the query, also check if query was successful
         if ($stmt->execute()) {
-            return json_encode(array('message' => 'Le critere a été crée avec succés', 'status' => 200));
+           $last_id = (int) $this->conn->lastInsertId();
+           return json_encode(array('message' => 'Le critere a été crée avec succés', 'status' => 200, 'lastInsertId' => $last_id));
         }
-        return json_encode(array('message' => 'Un probléme a survenu lors de la création', 'status' => 400));
+        return json_encode(array('message' => 'Un probléme a survenu lors de la création du critére', 'status' => 400));
     }
 
     public function getById($i)
     {
-        $query = "SELECT * FROM critere where  id=:id";
+        $query = "SELECT * FROM critere where id=:i";
 
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $i);
-
-        $stmt->execute();
-        $row = $stmt->fetch();
-        echo '{"id":"' . $row[0] . '" ,"libelle":"' . $row[1] . '" ,"isActive":"' . $row[2] . '"},';
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':i', $i);
+            $stmt->execute();
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            exit($e->getMessage());
+        }
     }
 
     public function getAll()
     {
-        $query = "SELECT * FROM critere";
-
-        $stmt = $this->conn->query($query);
-        $stmt->execute();
-
-        $m = '[';
-        foreach ($stmt as $row) {
-            $m = $m . '{"id":"' . $row['id'] . '"
-            ,"libelle":"' . $row['libelle'] . '"
-            ,"critereFilename":"' . $row['critereFilename'] . '"
-            ,"isActive":"' . $row['isActive'] . '"},';
+        //SELECT c.* , (SELECT count(*) from choix cx where cx.critere_id = c.id) as counting FROM `critere`as c
+//        $query = "SELECT * FROM critere";
+        $query = "SELECT c.* , (SELECT count(*) from choix cx where cx.critere_id = c.id) as nbrChoix FROM `critere`as c";
+        try {
+            $stmt = $this->conn->query($query);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            exit($e->getMessage());
         }
-        $m = substr($m, 0, strlen($m) - 1);
-        $m = $m . ']';
-        echo $m;
     }
 
     public function update($c)
     {
-        $req = "UPDATE critere 
-              SET libelle='$c->libelle',isActive='$c->isActive',critereFilename='$c->critereFilename'  WHERE id='$c->id'";
+        $req = "UPDATE critere
+              SET libelle='$c->libelle',isActive='$c->isActive',critereFilename='$c->critereFilename'  
+              WHERE id='$c->id'";
         $res = $this->conn->exec($req);
         echo $res;
         if ($res) {
             http_response_code(200);
             echo json_encode(array('message' => 'Ce critére a été mis a jour avec succés', 'status' => 200));
         } else {
-            return http_response_code(422);
+            return http_response_code(400);
             echo json_encode("{message:Un probléme a survenu lors de la modification, veuillez réessayer ulteriérement}");
         }
     }

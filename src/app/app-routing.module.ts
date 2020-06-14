@@ -1,12 +1,7 @@
-import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AdminLayoutComponent} from './theme/layouts/admin-layout/admin-layout.component';
-import {BrowserModule} from '@angular/platform-browser';
-import {CommonModule} from '@angular/common';
-import {AuthguardGuard} from './authguard.guard';
 import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './services/security/auth.guard';
-import {AppComponent} from './app.component';
 
 const routes: Routes = [
   // {path: 'menu/entreprises', component: ListentrepriseComponent},
@@ -27,6 +22,16 @@ const routes: Routes = [
         path: 'contribuable',
         canActivateChild: [AuthGuard],
         loadChildren: './contribuable/contribuable.module#ContribuableModule'
+      },
+      {
+        path: 'critere',
+        canActivateChild: [AuthGuard],
+        loadChildren: './Critere/critere.module#CritereModule'
+      },
+      {
+        path: 'creance',
+        canActivateChild: [AuthGuard],
+        loadChildren: './creance/creance.module#CreanceModule'
       },
     ]
   },

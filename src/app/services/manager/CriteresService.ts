@@ -11,12 +11,12 @@ const httpOptions = {
 };
 
 @Injectable()
-export class ContribuableService {
+export class CriteresService {
 
   constructor(private http: HttpClient) {
   }
 
-  url = '/crudappEntrepriseLog/api/contribuables/';
+  url = '/crudappEntrepriseLog/api/critere/';
 
   getAll() {
     return this.http.get<any[]>(this.url + 'all');
@@ -24,7 +24,15 @@ export class ContribuableService {
 
   edit(contribuble) {
     const body = JSON.stringify(contribuble);
-    return this.http.put(this.url + 'edit', body, httpOptions);
+    return this.http.post(this.url + 'edit', body, httpOptions);
+  }
+
+  desactivate(id) {
+    return this.http.get(this.url + 'desactivate?id=' + id);
+  }
+
+  activate(id) {
+    return this.http.get(this.url + 'activate?id=' + id);
   }
 
   new(contribuble) {
@@ -37,8 +45,6 @@ export class ContribuableService {
   }
 
   getById(id: any) {
-    console.log(this.http.get<any>(this.url + 'getById?id=' + id), 'get');
-    console.log(this.http.get<any[]>(this.url + 'all'), 'all');
     return this.http.get<any[]>(this.url + 'getById?id=' + id);
   }
 

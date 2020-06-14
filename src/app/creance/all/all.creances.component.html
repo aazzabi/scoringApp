@@ -1,0 +1,62 @@
+<style>
+  .card .content {
+    padding: 40px;
+  }
+</style>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <div class="row">
+              <div class="col-md-4">
+                <h4 class="title">Liste des créances</h4>
+              </div>
+              <div class="col-md-8 text-right">
+
+                <a class="btn btn-info btn-sm" [routerLink]="['/contribuable/add']"><i class="fa fa-plus"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <table class="table table-striped table-bordered table-sm row-border hover" datatable
+                   [dtOptions]="dtOptions">
+              <thead>
+              <tr>
+                <th>Recette</th>
+                <th>Secteur d'activité</th>
+                <th>Immat.</th>
+                <th>Contribuable</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+                <th>Date dernier act</th>
+                <th>Date dernier paiement</th>
+                <th>Score</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let c of creances; let i =index">
+                <td>{{c.recette}}</td>
+                <td>{{c.secteurActivite}}</td>
+                <td>{{c.immatriculation}}</td>
+                <td>{{c.libelleContribuable}}</td>
+                <td>{{c.dateDebut}}</td>
+                <td>{{c.dateFin}}</td>
+                <td>{{c.dernierAct}}</td>
+                <td>{{c.dernierPaiement}}</td>
+                <td>{{c.score}}</td>
+                <td>
+<!--                  <a class="btn btn-warning btn-sm"  ><i class="fa fa-pencil"></i></a>-->
+<!--                  <button class="btn btn-sm btn-danger" (click)="delete(c, i)"><i class="fa fa-trash"></i></button>-->
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

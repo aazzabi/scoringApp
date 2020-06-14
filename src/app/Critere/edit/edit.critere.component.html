@@ -1,0 +1,117 @@
+<div class="container-fluid mt--7" style="padding:30px 30px">
+  <div class="card shadow" style="padding:10px 30px">
+    <div class="card-header bg-white border-0">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <h3 class="mb-0">Ajouter un critére</h3>
+        </div>
+        <div class="col-md-4 text-right">
+          <a class="btn btn-secondary" routerLink="/critere">Retour a la liste</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="critereEdit">
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-control-label">Libelle</label>
+                <input type="text" class="form-control form-control-alternative" placeholder="libelle" name="libelle"
+                       formControlName="libelle"/>
+              </div>
+              <div *ngIf="critereEdit.controls.libelle.touched && critereEdit.controls['libelle'].errors?.required">
+                Veuillez renseigner ce champ
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-control-label">Nom de fichier de configuration</label>
+                <input type="text" class="form-control form-control-alternative" placeholder="Nom du fichier"
+                       name="critereFilename" formControlName="critereFilename"/>
+              </div>
+              <div
+                *ngIf="critereEdit.controls.critereFilename.touched && critereEdit.controls['critereFilename'].errors?.required">
+                Veuillez renseigner ce champ
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-control-label">Active ?</label><br>
+                <input type="checkbox" name="isActive" formControlName="isActive" [checked]='critere.isActive == true'>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div formArrayName="choices">
+              <div *ngFor="let cx of getChoices(critereEdit) ; let i=index">
+                <div [formGroupName]="i">
+                  <fieldset class="fdCard">
+                    <legend>
+                      <div style="font-size: 15px">
+                        Choix N°{{i + 1}}
+                        <button *ngIf="getChoices(critereEdit).length > 1" (click)="removeChoice(i)"
+                                class="btn btn-sm btn-danger">
+                          <i class="fa fa-trash"></i></button>
+                      </div>
+                    </legend>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="form-control-label">libelle choix</label>
+                          <input type="text" class="form-control form-control-alternative" placeholder="libelle"
+                                 name="libelle" formControlName="libelle"/>
+                        </div>
+                        <div *ngIf="cx.controls.libelle.touched && cx.controls['libelle'].errors?.required">
+                          Veuillez renseigner ce champ
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label class="form-control-label">note</label>
+                          <input type="number" class="form-control form-control-alternative" placeholder="note"
+                                 name="note" formControlName="note"/>
+                        </div>
+                        <div *ngIf="cx.controls.note.touched && cx.controls['note'].errors?.required">
+                          Veuillez renseigner ce champ
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label class="form-control-label">coefficient</label>
+                          <input type="number" class="form-control form-control-alternative" placeholder="coefficient"
+                                 name="coefficient" formControlName="coefficient"/>
+                        </div>
+                        <div *ngIf="cx.controls.coefficient.touched && cx.controls['coefficient'].errors?.required">
+                          Veuillez renseigner ce champ
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label class="form-control-label">Pondéré</label>
+                          <input type="number" class="form-control form-control-alternative" placeholder="pondere"
+                                 name="pondere" formControlName="pondere"/>
+                        </div>
+                        <div *ngIf="cx.controls.pondere.touched && cx.controls['pondere'].errors?.required">
+                          Veuillez renseigner ce champ
+                        </div>
+                      </div>
+                      <div class="col-md-1">
+                        <button (click)="addChoice()" class="point btn btn-secondary">
+                          <i class="fa fa-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn  btn-primary float-right bg-success text-white " [disabled]="(!critereEdit.valid)"
+                  (click)="confirmEdit($event)">Confirmer
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

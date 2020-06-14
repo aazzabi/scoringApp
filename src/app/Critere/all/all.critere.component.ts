@@ -6,28 +6,30 @@ import {UsersService} from '../../services/manager/UserService';
 import {EditContribuableComponent} from '../../contribuable/edit/edit.contribuable.component';
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {EditUserComponent} from '../edit/edit.user.component';
+import {CriteresService} from '../../services/manager/CriteresService';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'all-user-root',
-  templateUrl: './all.user.component.html',
+  selector: 'all-critere-root',
+  templateUrl: './all.critere.component.html',
 })
-export class AllUserComponent implements OnInit  {
-  users: any[];
+export class AllCritereComponent implements OnInit  {
+  criteres: any[];
   dtOptions: DataTables.Settings = {};
 
   constructor(
     private modalService: NgbModal,
-    private userServices: UsersService,
+    private critereServices: CriteresService,
     private route: ActivatedRoute,
     private router: Router,
   ) {
-    this.users = this.route.snapshot.data.users;
+    this.criteres = this.route.snapshot.data.criteres;
+    console.log(this.criteres , 'criteres');
   }
 
   ngOnInit() {
-    // this.userServices.getCalcule('999').subscribe((response) => console.log(response, '******'));
+    // this.critereServices.getCalcule('999').subscribe((response) => console.log(response, '******'));
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
@@ -35,19 +37,11 @@ export class AllUserComponent implements OnInit  {
     };
   }
 
-
-
-  openEdit(contrib) {
-    const modalRef = this.modalService.open(EditUserComponent);
-    modalRef.componentInstance.userToEdit = contrib;
-  }
-
-
   delete(c: any, i: any) {
-    if (confirm('Vous allez supprimer ce user ! \n etes-vous sure ?')) {
-      this.userServices.delete(c).subscribe(
+    if (confirm('Vous allez supprimer ce critere ! \n etes-vous sure ?')) {
+      this.critereServices.delete(c).subscribe(
         response => {
-          this.users.splice(i, 1);
+          this.criteres.splice(i, 1);
         },
         error => {
           console.log(error);
