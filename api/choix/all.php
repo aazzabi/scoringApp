@@ -9,6 +9,5 @@ $pdo = $cnx->CNXbase();
 
 $cx = new Choix($pdo);
 echo json_encode($cx->getAll(), true);
-//echo json_encode($critere->getById(2), true);
 
 ?>

@@ -31,7 +31,8 @@ $diff = $dateDebut->diff($now)->format("%y");
 if ($diff < 1) {
     echo 1;
     //echo 1 * $critéreAnciennete['coefficient']
-    //echo $critéreAnciennete['pondere'] * $critéreAnciennete['coefficient']
+    //echo $choix['pondere'] * $critéreAnciennete['coefficient']
+    //echo $choix['pondere'] * $choix['coefficient']
 } else {
     echo 2;
 }
