@@ -48,7 +48,7 @@
                 <td>
                   <a class="btn btn-warning btn-sm" *ngIf="loggedUser.role === 'ADMIN'" [routerLink]="['/critere/edit', c.id]"><i class="fa fa-pencil"></i>Modifier</a>
                   <a class="btn btn-info btn-sm" [routerLink]="['/critere/show', c.id]"><i class="fa fa-eye"></i>Detail</a>
-                  <button class="btn btn-sm btn-danger" (click)="delete(c, i)"><i class="fa fa-trash"></i>Supprimer</button>
+                  <button class="btn btn-sm btn-danger" *ngIf="loggedUser.role === 'ADMIN'"  (click)="delete(c, i)"><i class="fa fa-trash"></i>Supprimer</button>
                   <button class="btn btn-round btn-sm  btn-success" (click)="activateCritere(c.id, i)" *ngIf="c.isActive == false">Activer</button>
                   <button class="btn btn-round  btn-sm  btn-danger" (click)="desactivateCritere(c.id, i)" *ngIf="c.isActive == true">Désactiver</button>
                 </td>
