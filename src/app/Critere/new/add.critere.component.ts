@@ -4,6 +4,7 @@ import {AlertService} from '../../services/common/AlertService';
 import {Router} from '@angular/router';
 import {CriteresService} from '../../services/manager/CriteresService';
 import {ChoixService} from '../../services/manager/ChoixService';
+import {StorageService} from '../../services/security/storage.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -58,6 +59,7 @@ export class AddCritereComponent implements OnInit {
       libelle: this.critere.value.libelle,
       critereFilename: this.critere.value.critereFilename,
       isActive: this.critere.value.isActive,
+      createdBy: StorageService.decodeToken().data.id,
     }).subscribe(
       response => {
         this.critere.value.choices.forEach((v) => {

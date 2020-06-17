@@ -17,6 +17,7 @@ class Critere
     public $libelle;
     public $isActive;
     public $critereFilename;
+    public $createdBy;
 
     // constructor
     public function __construct($db)
@@ -28,7 +29,7 @@ class Critere
     function create()
     {
         // insert query
-        $query = "INSERT INTO critere (libelle, isActive, critereFilename) values (:libelle,:isActive,:critereFilename)";
+        $query = "INSERT INTO critere (libelle, isActive, critereFilename, created_by_id) values (:libelle,:isActive,:critereFilename, :createdBy)";
 
         // prepare the query
         $stmt = $this->conn->prepare($query);
@@ -37,11 +38,13 @@ class Critere
         $this->libelle = htmlspecialchars(strip_tags($this->libelle));
         $this->isActive = htmlspecialchars(strip_tags($this->isActive));
         $this->critereFilename = htmlspecialchars(strip_tags($this->critereFilename));
+        $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
 
         // bind the values
         $stmt->bindParam(':critereFilename', $this->critereFilename);
         $stmt->bindParam(':libelle', $this->libelle);
         $stmt->bindParam(':isActive', $this->isActive);
+        $stmt->bindParam(':createdBy', $this->createdBy);
 
         // execute the query, also check if query was successful
         if ($stmt->execute()) {
@@ -53,7 +56,8 @@ class Critere
 
     public function getById($i)
     {
-        $query = "SELECT * FROM critere where id=:i";
+        $query = "SELECT c.* , u.* 
+                    FROM critere as c, user as u where c.created_by_id = u.id and c.id=:i";
 
         try {
             $stmt = $this->conn->prepare($query);
@@ -69,7 +73,7 @@ class Critere
     {
         //SELECT c.* , (SELECT count(*) from choix cx where cx.critere_id = c.id) as counting FROM `critere`as c
 //        $query = "SELECT * FROM critere";
-        $query = "SELECT c.* , (SELECT count(*) from choix cx where cx.critere_id = c.id) as nbrChoix FROM `critere`as c";
+        $query = "SELECT c.*  FROM `critere`as c";
         try {
             $stmt = $this->conn->query($query);
             $stmt->execute();
