@@ -25,9 +25,7 @@ export class AllCritereComponent implements OnInit  {
     private router: Router,
   ) {
     this.criteres = this.route.snapshot.data.criteres;
-    console.log(this.criteres , 'criteres');
     this.loggedUser = StorageService.decodeToken().data;
-    console.log(this.loggedUser);
   }
 
   ngOnInit() {

@@ -7,10 +7,10 @@
             <div class="col-md-6">
               <h3>#{{critere.id}} {{critere.libelle}}</h3>
             </div>
-            <div class="col-md-6 text-right" *ngIf="critere.isActive == false">
+            <div class="col-md-6 text-right" *ngIf="critere.isActive == false  && (loggedUser.role === 'ADMIN')">
               <button class="btn btn-success" (click)="activateCritere(critere.id)">Activer</button>
             </div>
-            <div class="col-md-6 text-right" *ngIf="critere.isActive == true">
+            <div class="col-md-6 text-right" *ngIf="critere.isActive == true && (loggedUser.role === 'ADMIN')">
               <button class="btn btn-danger" (click)="desactivateCritere(critere.id)">Désactiver</button>
             </div>
           </div>

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec6d730b-559f-4beb-baa1-863c309f5506" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Critere.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Critere.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/critere/new.php" beforeDir="false" afterPath="$PROJECT_DIR$/critere/new.php" afterDir="false" />
-    </list>
+    <list default="true" id="ec6d730b-559f-4beb-baa1-863c309f5506" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +44,7 @@
     <session id="1088246424">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
@@ -404,12 +400,12 @@
       <workItem from="1592126870571" duration="130000" />
       <workItem from="1592138366208" duration="6372000" />
       <workItem from="1592384139326" duration="612000" />
-      <workItem from="1592384929298" duration="936000" />
+      <workItem from="1592384929298" duration="1073000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56738000" />
+    <option name="totallyTimeSpent" value="56875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />

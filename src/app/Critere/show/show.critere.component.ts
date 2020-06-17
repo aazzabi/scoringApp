@@ -7,6 +7,7 @@ import {EditContribuableComponent} from '../../contribuable/edit/edit.contribuab
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CriteresService} from '../../services/manager/CriteresService';
+import {StorageService} from '../../services/security/storage.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -15,6 +16,7 @@ import {CriteresService} from '../../services/manager/CriteresService';
 })
 export class ShowCritereComponent implements OnInit  {
   critere: any;
+  loggedUser: any;
   choix: any[];
   dtOptions: DataTables.Settings = {};
 
@@ -26,6 +28,7 @@ export class ShowCritereComponent implements OnInit  {
   ) {
     this.critere = this.route.snapshot.data.critere;
     this.choix = this.route.snapshot.data.choix;
+    this.loggedUser = StorageService.decodeToken().data;
   }
 
   ngOnInit() {
