@@ -17,7 +17,7 @@
               <div class="col-md-4">
                 <h4 class="title">Liste des critéres</h4>
               </div>
-              <div class="col-md-8 text-right">
+              <div class="col-md-8 text-right"  *ngIf="loggedUser.role === 'ADMIN'" >
                 <a class="btn btn-info btn-sm" [routerLink]="['/critere/add']"><i class="fa fa-plus"></i></a>
               </div>
             </div>

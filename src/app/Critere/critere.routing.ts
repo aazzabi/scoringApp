@@ -11,11 +11,15 @@ import {RoleGuard} from '../services/security/role.guard';
 
 const routes: Routes = [
   {path: 'all', component: AllCritereComponent, resolve: {criteres: AllCritereResolverService}},
-  {path: 'add', component: AddCritereComponent/*, canActivate: [AuthguardGuard]*/},
+  {
+    path: 'add',
+    canActivate: [RoleGuard], data: {roles: ['ADMIN']},
+    component: AddCritereComponent/*, canActivate: [AuthguardGuard]*/
+  },
   {
     path: 'edit/:id',
     component: EditCritereComponent,
-    canActivate: [RoleGuard], data: { roles: ['ADMIN'] } ,
+    canActivate: [RoleGuard], data: {roles: ['ADMIN']},
     resolve: {critere: GetCritereByIdResolverService, choix: GetChoixByIdCritereResolverService}
   },
   {
