@@ -12,17 +12,15 @@ export class RoleGuard implements CanActivate {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (!StorageService.get('token')) {
+    if (StorageService.get('token')) {
       const rolesAllowed = next.data.roles as Array<string>;
-      const user = StorageService.get('token');
+      const user = StorageService.decodeToken().data;
       if (rolesAllowed) {
         // check if user is allowed
         const match = rolesAllowed.find(ob => ob === user.role);
         if (match != null) {
-          console.log('maatch true' + match);
           return true;
         } else {
-          console.log('maatch false');
           this.router.navigate(['/']);
           return false;
         }

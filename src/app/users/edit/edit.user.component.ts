@@ -21,7 +21,7 @@ export class EditUserComponent implements OnInit {
     username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     role: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
+    password: new FormControl('', []),
   });
 
   confirmPassword = new FormControl('', [this.sameValueAs(this.userEdit, 'password')]);
@@ -56,6 +56,7 @@ export class EditUserComponent implements OnInit {
       id: this.userToEdit.id,
       nom: this.userEdit.value.nom,
       prenom: this.userEdit.value.prenom,
+      username: this.userEdit.value.username,
       email: this.userEdit.value.email,
       role: this.userEdit.value.role,
       password: this.userEdit.value.password,
@@ -63,9 +64,9 @@ export class EditUserComponent implements OnInit {
       response => {
         console.log(response);
         // @ts-ignore
-        this.alertService.success(response, true);
+        this.alertService.success('L\'utilisateur a ete modifié avec succés ! ', true);
         this.activeModal.close();
-        this.router.navigateByUrl('/users');
+        window.location.reload();
       },
       error => {
         this.activeModal.close();

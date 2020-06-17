@@ -40,7 +40,7 @@ export class AddUserComponent implements OnInit {
       response => {
         var data = JSON.parse(response);
         console.log(data);
-        this.router.navigateByUrl('/users');
+        this.router.navigateByUrl('/users/all');
         this.alertService.success(data.message);
       },
       error => {

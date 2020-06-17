@@ -34,7 +34,10 @@
                 <td>{{c.nom}} {{c.prenom}}</td>
                 <td>{{c.username}}</td>
                 <td>{{c.email}}</td>
-                <td>{{c.role}}</td>
+                <td>
+                  <span *ngIf="c.role === 'ADMIN'" class="badge badge-pill badge-primary">{{c.role}}</span>
+                  <span *ngIf="c.role === 'AGENT'" class="badge badge-pill badge-success">{{c.role}}</span>
+                </td>
                 <td>
                   <a class="btn btn-warning btn-sm" (click)="openEdit(c)"><i class="fa fa-pencil"></i></a>
 

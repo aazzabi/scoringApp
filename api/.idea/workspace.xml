@@ -4,6 +4,7 @@
     <list default="true" id="ec6d730b-559f-4beb-baa1-863c309f5506" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreAnciennete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreAnciennete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreEtat.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreEtat.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/choix/all.php" beforeDir="false" afterPath="$PROJECT_DIR$/choix/all.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
     </list>
@@ -63,14 +64,14 @@
           <entry key="env" value="1" />
           <entry key="json" value="5" />
           <entry key="lock" value="1" />
-          <entry key="php" value="122" />
+          <entry key="php" value="125" />
           <entry key="ts" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="6" />
-          <entry key="PHP" value="122" />
+          <entry key="PHP" value="125" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="2" />
         </counts>
@@ -79,14 +80,14 @@
         <counts>
           <entry key="env" value="20" />
           <entry key="json" value="42" />
-          <entry key="php" value="5993" />
+          <entry key="php" value="6006" />
           <entry key="ts" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="42" />
-          <entry key="PHP" value="5954" />
+          <entry key="PHP" value="5967" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="SQL" value="39" />
           <entry key="TypeScript" value="3" />
@@ -107,6 +108,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreAnciennete.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/User.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
@@ -120,11 +130,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
               <caret line="31" column="39" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreEtat.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Utils/Criteres/chiffreAffaire.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -230,13 +258,13 @@
         <option value="$PROJECT_DIR$/Models/Critere.php" />
         <option value="$PROJECT_DIR$/critere/edit.php" />
         <option value="$PROJECT_DIR$/creance/all.php" />
-        <option value="$PROJECT_DIR$/Utils/Criteres/scoreEtat.php" />
         <option value="$PROJECT_DIR$/Utils/calculateAllScores.php" />
         <option value="$PROJECT_DIR$/Models/Creance.php" />
         <option value="$PROJECT_DIR$/Utils/Criteres/scoreAnciennete.php" />
         <option value="$PROJECT_DIR$/Utils/Criteres/chiffreAffaire.php" />
         <option value="$PROJECT_DIR$/choix/all.php" />
         <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreEtat.php" />
       </list>
     </option>
   </component>
@@ -346,17 +374,17 @@
       <workItem from="1591917440172" duration="1233000" />
       <workItem from="1591959868829" duration="14125000" />
       <workItem from="1592126870571" duration="130000" />
-      <workItem from="1592138366208" duration="6032000" />
+      <workItem from="1592138366208" duration="6372000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54850000" />
+    <option name="totallyTimeSpent" value="55190000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14563759" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14563759" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -370,7 +398,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32907802" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3815603" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3815603" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -581,31 +609,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreEtat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreSalaireMoyenne.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreAnciennete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/Criteres/chiffreAffaire.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -721,6 +728,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="31" column="39" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreAnciennete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/chiffreAffaire.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreEtat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
         </state>
       </provider>
     </entry>

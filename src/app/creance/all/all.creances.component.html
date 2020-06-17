@@ -14,10 +14,8 @@
                 <h4 class="title">Liste des créances</h4>
               </div>
               <div class="col-md-8 text-right">
-
-                <a class="btn btn-info btn-sm" [routerLink]="['/contribuable/add']"><i class="fa fa-plus"></i></a>
-                <a style="cursor: pointer" (click)="exportexcel()">
-                  <i class="fa fa-download"></i>
+                <a class="btn btn-success" style="cursor: pointer" (click)="exportexcel()">
+                  <i class="fa fa-download"></i> Export Excel
                 </a>
               </div>
             </div>
@@ -27,33 +25,34 @@
                    [dtOptions]="dtOptions">
               <thead>
               <tr>
+                <th>ID</th>
                 <th>Recette</th>
                 <th>Secteur d'activité</th>
                 <th>Immat.</th>
                 <th>Contribuable</th>
+                <th>Montant</th>
                 <th>Date début</th>
-                <th>Date fin</th>
                 <th>Date dernier act</th>
                 <th>Date dernier paiement</th>
                 <th>Score</th>
-                <th>Actions</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let c of creances; let i =index">
+                <td>#{{c.id}}</td>
                 <td>{{c.recette}}</td>
                 <td>{{c.secteurActivite}}</td>
                 <td>{{c.immatriculation}}</td>
                 <td>{{c.libelleContribuable}}</td>
-                <td>{{c.dateDebut}}</td>
-                <td>{{c.dateFin}}</td>
+                <td>{{c.montant}}</td>
+                <td>{{c.dateDebutPriseEnCharge}}</td>
                 <td>{{c.dernierAct}}</td>
                 <td>{{c.dernierPaiement}}</td>
                 <td>{{c.score}}</td>
-                <td>
+<!--                <td>-->
 <!--                  <a class="btn btn-warning btn-sm"  ><i class="fa fa-pencil"></i></a>-->
 <!--                  <button class="btn btn-sm btn-danger" (click)="delete(c, i)"><i class="fa fa-trash"></i></button>-->
-                </td>
+<!--                </td>-->
               </tr>
               </tbody>
             </table>

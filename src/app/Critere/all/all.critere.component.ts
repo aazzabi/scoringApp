@@ -7,6 +7,7 @@ import {EditContribuableComponent} from '../../contribuable/edit/edit.contribuab
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CriteresService} from '../../services/manager/CriteresService';
+import {StorageService} from '../../services/security/storage.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -16,7 +17,7 @@ import {CriteresService} from '../../services/manager/CriteresService';
 export class AllCritereComponent implements OnInit  {
   criteres: any[];
   dtOptions: DataTables.Settings = {};
-
+  loggedUser : any;
   constructor(
     private modalService: NgbModal,
     private critereServices: CriteresService,
@@ -25,6 +26,8 @@ export class AllCritereComponent implements OnInit  {
   ) {
     this.criteres = this.route.snapshot.data.criteres;
     console.log(this.criteres , 'criteres');
+    this.loggedUser = StorageService.decodeToken().data;
+    console.log(this.loggedUser);
   }
 
   ngOnInit() {
@@ -48,5 +51,21 @@ export class AllCritereComponent implements OnInit  {
         }
       );
     }
+  }
+
+  activateCritere(id: any, i : any) {
+    this.critereServices.activate(id).subscribe((data) => {
+      this.criteres[i].isActive = true;
+    }, error => {
+      this.criteres[i].isActive = true;
+    });
+  }
+  desactivateCritere(id: any, i : any) {
+    this.critereServices.desactivate(id).subscribe((data) => {
+      this.criteres[i].isActive = false;
+    }, error => {
+      this.criteres[i].isActive = false;
+    });
+
   }
 }

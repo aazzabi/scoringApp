@@ -13,10 +13,10 @@
               <div class="col-md-4">
                 <h4 class="title">Liste de contribuables</h4>
               </div>
-              <div class="col-md-8 text-right">
+<!--              <div class="col-md-8 text-right">-->
 
-                <a class="btn btn-info btn-sm" [routerLink]="['/contribuable/add']"><i class="fa fa-plus"></i></a>
-              </div>
+<!--                <a class="btn btn-info btn-sm" [routerLink]="['/contribuable/add']"><i class="fa fa-plus"></i></a>-->
+<!--              </div>-->
             </div>
           </div>
           <div class="content table-responsive table-full-width">
@@ -27,7 +27,6 @@
                 <th>Nom</th>
                 <th>Activité</th>
                 <th>Forme juridique</th>
-                <th>Actions</th>
               </tr>
               </thead>
               <tbody>
@@ -35,11 +34,11 @@
                 <td>{{c.libelle}}</td>
                 <td>{{c.activite}}</td>
                 <td>{{c.formeJuridique}}</td>
-                <td>
-                  <a class="btn btn-warning btn-sm"  (click)="edit(c)"><i class="fa fa-pencil"></i></a>
+<!--                <td>-->
+<!--                  <a class="btn btn-warning btn-sm"  (click)="edit(c)"><i class="fa fa-pencil"></i></a>-->
 
-                  <button class="btn btn-sm btn-danger" (click)="delete(c, i)"><i class="fa fa-trash"></i></button>
-                </td>
+<!--                  <button class="btn btn-sm btn-danger" (click)="delete(c, i)"><i class="fa fa-trash"></i></button>-->
+<!--                </td>-->
               </tr>
               </tbody>
             </table>

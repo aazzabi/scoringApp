@@ -17,10 +17,10 @@ declare interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
   // {path: '/dashboard', title: 'Dashboard', icon: 'pe-7s-graph', class: '', rolesAllowed: ['ADMIN', 'USER']},
-  {path: '/users/all', title: 'Utilisateurs', icon: 'pe-7s-user', class: '', rolesAllowed: ['ADMIN']},
+  {path: '/creance', title: 'Creances', icon: 'pe-7s-science', class: '', rolesAllowed: ['ADMIN', 'AGENT']},
   {path: '/contribuable', title: 'Contribuable', icon: 'pe-7s-note2', class: '', rolesAllowed: ['ADMIN' , 'AGENT']},
-  {path: '/critere/all', title: 'Criteres', icon: 'pe-7s-note', class: '', rolesAllowed: ['ADMIN' , 'USER']},
-  {path: '/creance', title: 'Creances', icon: 'pe-7s-science', class: '', rolesAllowed: ['ADMIN']},
+  {path: '/critere/all', title: 'Criteres', icon: 'pe-7s-note', class: '', rolesAllowed: ['ADMIN' , 'AGENT']},
+  {path: '/users/all', title: 'Utilisateurs', icon: 'pe-7s-user', class: '', rolesAllowed: ['ADMIN']},
 // {path: '/typography', title: 'Typography', icon: 'pe-7s-news-paper', class: '', rolesAllowed: ['ADMIN']},
   // {path: '/icons', title: 'Icons', icon: 'pe-7s-science', class: '', rolesAllowed: ['ADMIN']},
   // {path: '/maps', title: 'Maps', icon: 'pe-7s-map-marker', class: '', rolesAllowed: ['ADMIN']},

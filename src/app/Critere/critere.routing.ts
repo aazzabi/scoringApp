@@ -7,6 +7,7 @@ import {AllCritereResolverService} from '../services/resolvers/all.criteres.reso
 import {ShowCritereComponent} from './show/show.critere.component';
 import {GetCritereByIdResolverService} from '../services/resolvers/get.critere.by.id.resolver.service';
 import {GetChoixByIdCritereResolverService} from '../services/resolvers/get.choix.by.id.critere.resolver.service';
+import {RoleGuard} from '../services/security/role.guard';
 
 const routes: Routes = [
   {path: 'all', component: AllCritereComponent, resolve: {criteres: AllCritereResolverService}},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: EditCritereComponent,
+    canActivate: [RoleGuard], data: { roles: ['ADMIN'] } ,
     resolve: {critere: GetCritereByIdResolverService, choix: GetChoixByIdCritereResolverService}
   },
   {
