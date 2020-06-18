@@ -3,8 +3,11 @@
     padding: 40px;
   }
   td > .badge {
-    width: 90px;
+    padding: 3px 10px;
     text-align: center;
+  }
+  td {
+    font-size: 14px;
   }
 </style>
 <div class="main-content">
@@ -27,7 +30,7 @@
                    [dtOptions]="dtOptions">
               <thead>
               <tr>
-                <th>#</th>
+                <th>id</th>
                 <th>libelle</th>
                 <th>Fichier de configuration</th>
                 <th>Etat</th>
@@ -36,7 +39,7 @@
               </thead>
               <tbody>
               <tr *ngFor="let c of criteres; let i =index">
-                <td>{{c.id}}</td>
+                <td>#{{c.id}}</td>
                 <td>{{c.libelle}}</td>
                 <td>{{c.critereFilename}}.php</td>
                 <td *ngIf="c.isActive == true">
