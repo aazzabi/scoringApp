@@ -142,4 +142,41 @@ class Critere
     }
 
 
+
+    function configFileExists() {
+
+        // query to check if critereFilename exists
+        $query = "SELECT *
+                FROM critere
+                WHERE critereFilename = ?
+                LIMIT 0,1";
+
+        // prepare the query
+        $stmt = $this->conn->prepare( $query );
+
+        // bind given configFile value
+        $stmt->bindParam(1, $this->critereFilename);
+
+        // execute the query
+        $stmt->execute();
+
+        // get number of rows
+        $num = $stmt->rowCount();
+
+        // if configFile exists, assign values to object properties for easy access and use for php sessions
+        if($num>0){
+            // get record details / values
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            // assign values to object properties
+            $this->id = $row['id'];
+            $this->libelle = $row['libelle'];
+            $this->critereFilename = $row['critereFilename'];
+            $this->isActive = $row['isActive'];
+            $this->createdBy = $row['created_by_id'];
+            // return true because configFile exists in the database
+            return true;
+        }
+        // return false if configFile does not exist in the database
+        return false;
+    }
 }

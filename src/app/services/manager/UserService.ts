@@ -32,6 +32,10 @@ export class UsersService {
     return this.http.post(this.url + 'new/', u, httpOptions);
   }
 
+  emailExists(u: any) {
+    return this.http.post(this.url + 'emailExists/', u, httpOptions);
+  }
+
   delete(u: any) {
     return this.http.delete(this.url + 'delete.php?id=' + u.id);
   }

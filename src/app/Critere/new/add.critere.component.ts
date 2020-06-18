@@ -55,32 +55,36 @@ export class AddCritereComponent implements OnInit {
   }
   confirm($event: MouseEvent) {
     console.log(this.critere.value, 'form');
-    this.critereService.new({
-      libelle: this.critere.value.libelle,
-      critereFilename: this.critere.value.critereFilename,
-      isActive: this.critere.value.isActive,
-      createdBy: StorageService.decodeToken().data.id,
-    }).subscribe(
-      response => {
-        this.critere.value.choices.forEach((v) => {
-          this.choixService.new({
-            // @ts-ignore
-            critere: response.lastInsertId,
-            libelle: v.libelle,
-            note: v.note,
-            pondere: v.pondere,
-            coefficient: v.coefficient,
-          }).subscribe((responseCx) => {
-            console.log(responseCx, 'response CX');
-          }, errorCx => {
-            console.log(errorCx, 'errorCx');
+    this.critereService.configFilnameExists({critereFilename: this.critere.value.critereFilename}).subscribe((d) => {
+      this.critereService.new({
+        libelle: this.critere.value.libelle,
+        critereFilename: this.critere.value.critereFilename,
+        isActive: this.critere.value.isActive,
+        createdBy: StorageService.decodeToken().data.id,
+      }).subscribe(
+        response => {
+          this.critere.value.choices.forEach((v) => {
+            this.choixService.new({
+              // @ts-ignore
+              critere: response.lastInsertId,
+              libelle: v.libelle,
+              note: v.note,
+              pondere: v.pondere,
+              coefficient: v.coefficient,
+            }).subscribe((responseCx) => {
+              console.log(responseCx, 'response CX');
+            }, errorCx => {
+              console.log(errorCx, 'errorCx');
+            });
           });
+          this.router.navigateByUrl('/critere/all');
+        }, error => {
+          this.alertService.error(error.message);
+          console.log(error);
         });
-        this.router.navigateByUrl('/critere/all');
-      }, error => {
-        this.alertService.error(error.message);
-        console.log(error);
-      });
+    }, err => {
+      this.alertService.error('Un critére existe deja avec ce meme nom de fichier de configuration ');
+    });
   }
 
 }

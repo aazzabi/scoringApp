@@ -40,6 +40,11 @@ export class CriteresService {
     return this.http.post(this.url + 'new', body, httpOptions);
   }
 
+  configFilnameExists(body) {
+    console.log(body);
+    return this.http.post(this.url + 'configFilnameExists', body, httpOptions);
+  }
+
   delete(u: any) {
     return this.http.delete(this.url + 'delete?id=' + u.id);
   }

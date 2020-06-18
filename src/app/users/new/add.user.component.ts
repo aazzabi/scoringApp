@@ -29,25 +29,28 @@ export class AddUserComponent implements OnInit {
   }
 
   confirm($event: MouseEvent) {
-    this.userService.new({
-      nom: this.user.value.nom,
-      prenom: this.user.value.prenom,
-      email: this.user.value.email,
-      username: this.user.value.username,
-      role: this.user.value.role,
-      password: this.user.value.password,
-    }).subscribe(
-      response => {
-        var data = JSON.parse(response);
-        console.log(data);
-        this.router.navigateByUrl('/users/all');
-        this.alertService.success(data.message);
-      },
-      error => {
-        this.alertService.error(error.message);
-        console.log(error);
-      }
-    );
+    this.userService.emailExists({email : this.user.value.email}).subscribe((d) => {
+      this.userService.new({
+        nom: this.user.value.nom,
+        prenom: this.user.value.prenom,
+        email: this.user.value.email,
+        username: this.user.value.username,
+        role: this.user.value.role,
+        password: this.user.value.password,
+      }).subscribe(
+        response => {
+          const data = JSON.parse(response);
+          console.log(data);
+          this.router.navigateByUrl('/users/all');
+          this.alertService.success(data.message);
+        },
+        error => {
+          this.alertService.error(error);
+        }
+      );
+    }, error => {
+      this.alertService.error('Un compte existe deja avec ce meme email ');
+    });
   }
 
   sameValueAs(group: FormGroup, controlName: string): ValidatorFn {
