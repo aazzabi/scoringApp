@@ -15,7 +15,12 @@ $id = $_GET['id'];
 $creance = $creanCtrl->getById($id);
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
-$montant = $contribuable['creditOuExcedentTVA'];
+$dette = $contribuable['montantDetteFiscale'];
+
+// **********************************
+// c'est quoi créances mobilisables ??
+// **********************************
+
 
 /* Existence de débiteurs (créances)
 Si Absence de créances mobilisables score=0
