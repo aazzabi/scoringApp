@@ -47,10 +47,10 @@ export class AddCritereComponent implements OnInit {
   // initBed
   initChoices() {
     return new FormGroup({
-      libelle: new FormControl('', Validators.required),
-      note: new FormControl('', Validators.required),
-      coefficient: new FormControl('', Validators.required),
-      pondere: new FormControl('', Validators.required),
+      libelle: new FormControl('', ),
+      note: new FormControl('', ),
+      coefficient: new FormControl('', ),
+      pondere: new FormControl('', ),
     });
   }
   confirm($event: MouseEvent) {
