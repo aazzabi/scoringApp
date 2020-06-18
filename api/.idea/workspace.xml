@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec6d730b-559f-4beb-baa1-863c309f5506" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/ScorePaiementImpositions.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/ScorePaiementImpositions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreExistenceDebiteurs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreExistenceDebiteurs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreExistenceLocataires.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreExistenceLocataires.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreFormeJuridique.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreFormeJuridique.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreGaranties.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreGaranties.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreHistoriqueActionRecouvrement.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreHistoriqueActionRecouvrement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreHistoriquePlansReglement.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreHistoriquePlansReglement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreImmatriculation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreImmatriculation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreMontantTotDette.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreMontantTotDette.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreNatureActivite.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreNatureActivite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreNiveauEndettement.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreNiveauEndettement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreOrigine.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreOrigine.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreSalaireMoyenne.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreSinceriteElementsDeclares.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreSinceriteElementsDeclares.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreSituationTresorerie.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreSituationTresorerie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreSolvabiliteEntreprisesBilan.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreSolvabiliteEntreprisesBilan.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreSolvabilitePatrimoine.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreSolvabilitePatrimoine.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreStatutFournisseurEtat.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreStatutFournisseurEtat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreStatutImportateurRegulier.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreStatutImportateurRegulier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreTypedeCreance.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreTypedeCreance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreVabiliteParBilan .php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreVabiliteParBilan .php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreViabiliteEntreprisesBilan.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreViabiliteEntreprisesBilan.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreViabiliteParResultat.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreViabiliteParResultat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/Criteres/scoreViabilitePersonnesPhysiques.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/Criteres/scoreViabilitePersonnesPhysiques.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +69,7 @@
           <entry key="env" value="1" />
           <entry key="json" value="5" />
           <entry key="lock" value="1" />
-          <entry key="php" value="188" />
+          <entry key="php" value="200" />
           <entry key="sql" value="2" />
           <entry key="ts" value="2" />
         </counts>
@@ -82,7 +77,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="6" />
-          <entry key="PHP" value="188" />
+          <entry key="PHP" value="200" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SQL" value="2" />
           <entry key="TypeScript" value="2" />
@@ -92,14 +87,14 @@
         <counts>
           <entry key="env" value="20" />
           <entry key="json" value="42" />
-          <entry key="php" value="8837" />
+          <entry key="php" value="9306" />
           <entry key="ts" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="42" />
-          <entry key="PHP" value="8796" />
+          <entry key="PHP" value="9265" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="SQL" value="41" />
           <entry key="TypeScript" value="3" />
@@ -120,19 +115,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils/Criteres/ScorePaiementImpositions.php">
+        <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreViabiliteEntreprisesBilan.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="23" selection-end-column="72" />
+            <state relative-caret-position="-122">
+              <caret line="1" selection-start-line="1" selection-end-line="33" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreViabiliteParResultat.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="35" column="10" selection-start-line="35" selection-end-line="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreSinceriteElementsDeclares.php">
+        <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreViabilitePersonnesPhysiques.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+            <state relative-caret-position="558">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
@@ -150,10 +154,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nom</find>
-      <find>role</find>
-      <find>$conn</find>
-      <find>$postdata</find>
       <find>id</find>
       <find>$scoreEtat</find>
       <find>exe</find>
@@ -180,6 +180,10 @@
       <find>0 0</find>
       <find>moye</find>
       <find>75</find>
+      <find>$paiementEffectuesAuPlusTardDateExigibilite</find>
+      <find>origine</find>
+      <find>valeurImmobilisationsFinancieres</find>
+      <find>montantResultatComptable</find>
     </findStrings>
     <replaceStrings>
       <replace>Contribuable</replace>
@@ -207,6 +211,9 @@
       <replace>$tot</replace>
       <replace>10</replace>
       <replace>00</replace>
+      <replace>$mnt</replace>
+      <replace>$type</replace>
+      <replace>montantRevenuGlobalDeclare</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\wamp\www\crudappEntrepriseLog\api\contribuables</dir>
@@ -219,16 +226,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/critere/all.php" />
-        <option value="$PROJECT_DIR$/critere/getById.php" />
-        <option value="$PROJECT_DIR$/critere/delete.php" />
-        <option value="$PROJECT_DIR$/critere/activate.php" />
-        <option value="$PROJECT_DIR$/critere/desactivate.php" />
-        <option value="$PROJECT_DIR$/choix/new.php" />
-        <option value="$PROJECT_DIR$/choix/edit.php" />
-        <option value="$PROJECT_DIR$/choix/getById.php" />
-        <option value="$PROJECT_DIR$/critere/allByCritere.php" />
-        <option value="$PROJECT_DIR$/choix/delete.php" />
         <option value="$PROJECT_DIR$/contribuables/all.php" />
         <option value="$PROJECT_DIR$/choix/allByCritereId.php" />
         <option value="$PROJECT_DIR$/Models/Choix.php" />
@@ -270,6 +267,16 @@
         <option value="$PROJECT_DIR$/Utils/Criteres/scoreOrigine.php" />
         <option value="$PROJECT_DIR$/Utils/Criteres/ScorePaiementImpositions.php" />
         <option value="$PROJECT_DIR$/Utils/Criteres/scoreSinceriteElementsDeclares.php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreSituationTresorerie.php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreSolvabiliteEntreprisesBilan.php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreSolvabilitePatrimoine.php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreStatutFournisseurEtat.php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreStatutImportateurRegulier.php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreTypedeCreance.php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreVabiliteParBilan .php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreViabiliteEntreprisesBilan.php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreViabiliteParResultat.php" />
+        <option value="$PROJECT_DIR$/Utils/Criteres/scoreViabilitePersonnesPhysiques.php" />
       </list>
     </option>
   </component>
@@ -377,12 +384,12 @@
       <workItem from="1592138366208" duration="6372000" />
       <workItem from="1592384139326" duration="612000" />
       <workItem from="1592384929298" duration="1073000" />
-      <workItem from="1592391344795" duration="24518000" />
+      <workItem from="1592391344795" duration="26751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81393000" />
+    <option name="totallyTimeSpent" value="83626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -418,76 +425,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/creance/all.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/calculateAllScores.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="108" selection-start-line="14" selection-start-column="89" selection-end-line="14" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/choix/allByCritereId.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/choix/delete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/choix/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/critere/activate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Contribuable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="50" selection-start-line="50" selection-end-line="56" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/choix/all.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="10" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Choix.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Creance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -731,13 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreOrigine.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="23" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/critere.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -761,8 +691,85 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreSinceriteElementsDeclares.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreSolvabilitePatrimoine.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreStatutFournisseurEtat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="35" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreOrigine.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="43" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreStatutImportateurRegulier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreSolvabiliteEntreprisesBilan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="34" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreSituationTresorerie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="34" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreTypedeCreance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreVabiliteParBilan .php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreViabiliteEntreprisesBilan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-122">
+          <caret line="1" selection-start-line="1" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreViabiliteParResultat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="35" column="10" selection-start-line="35" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreViabilitePersonnesPhysiques.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
