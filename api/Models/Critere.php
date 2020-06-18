@@ -71,8 +71,6 @@ class Critere
 
     public function getAll()
     {
-        //SELECT c.* , (SELECT count(*) from choix cx where cx.critere_id = c.id) as counting FROM `critere`as c
-//        $query = "SELECT * FROM critere";
         $query = "SELECT c.*  FROM `critere`as c";
         try {
             $stmt = $this->conn->query($query);

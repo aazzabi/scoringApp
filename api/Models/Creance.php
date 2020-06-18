@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: arafe
- * Date: 11/06/2020
- * Time: 12:34
- */
 
 class Creance
 {
@@ -34,16 +28,43 @@ class Creance
 
     public function getAll()
     {
-        $query = "SELECT c.* , ctr.libelle as libelleContribuable, ctr.id as idCtr 
-                  FROM creance as c , contribuable  as ctr 
-                  where c.contribuable_id = ctr.id";
-        try {
-            $stmt = $this->conn->prepare($query);
-            $stmt->execute();
-            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        } catch (\PDOException $e) {
-            exit($e->getMessage());
+//        $query = "SELECT c.* , ctr.libelle as libelleContribuable, ctr.id as idCtr
+//                  FROM creance as c , contribuable  as ctr
+//                  where c.contribuable_id = ctr.id";
+        $query = "select * from creance";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+
+    public function getAllCreance()
+    {
+
+        $query = "SELECT c.* , ctr.libelle as libelleContribuable, ctr.id as idCtr  FROM creance as c , contribuable  as ctr where c.contribuable_id = ctr.id";
+//        $query = "SELECT c.*  FROM `creance`as c";
+        $stmt = $this->conn->query($query);
+        $m = '[';
+        foreach ($stmt as $row) {
+            $m = $m . '{"id":"' . $row['id'] . '"
+                ,"recette":"' . $row['recette'] . '"
+                ,"secteurActivite":"' . $row['secteurActivite'] . '"
+                ,"libelleContribuable":"' . $row['libelleContribuable'] . '"
+                ,"idCtr":"' . $row['idCtr'] . '"
+                ,"dateFin":"' . $row['dateFin'] . '"
+                ,"dateDebutPriseEnCharge":"' . $row['dateDebutPriseEnCharge'] . '"
+                ,"dernierAct":"' . $row['dernierAct'] . '"
+                ,"immatriculation":"' . $row['immatriculation'] . '"
+                ,"score":"' . $row['score'] . '"
+                ,"montant":"' . $row['montant'] . '"
+                ,"statut":"' . $row['statut'] . '"
+                ,"type":"' . $row['type'] . '"
+                ,"origine":"' . $row['origine'] . '"
+                ,"dernierPaiement":"' . $row['dernierPaiement'] . '"},';
         }
+        $m = substr($m, 0, strlen($m) - 1);
+        $m = $m . ']';
+        echo $m;
     }
 
     public function getById($i)

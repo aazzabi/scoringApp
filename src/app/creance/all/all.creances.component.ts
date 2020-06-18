@@ -30,6 +30,7 @@ export class AllCreancesComponent implements OnInit {
     private router: Router,
   ) {
     this.creances = this.route.snapshot.data.creances;
+    console.log(this.creances, 'creances');
     this.creances.forEach((c) => {
       this.creancesService.getScore(c.id).subscribe((data)=> {
         c.score = data;

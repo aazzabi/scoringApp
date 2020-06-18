@@ -6,21 +6,33 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 require '../../Models/Creance.php';
 require '../../Models/Contribuable.php';
 require '../../connect.php ';
+
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
 $creanCtrl = new Creance($pdo);
 $contribCtrl = new Contribuable($pdo);
 
 $id = $_GET['id'];
+
+//On récupére la créance by ID ( passé en paramétre )
 $creance = $creanCtrl->getById($id);
+
+//On récupére le contribuable by $creance->id
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
-$dette = $contribuable['montantDetteFiscale'];
+$valImmo  = $contribuable['valeurImmobilisationsCorporellesEtIncorporelles'];
 
-// **********************************
-// c'est quoi créances mobilisables ??
-// **********************************
+$dette  = $contribuable['montantDetteFiscale'];
 
+if (($valImmo == 0 ) || ($valImmo == null)){
+    echo 0;
+} else if ($valImmo == ($dette/4) ) {
+    echo 1;
+} else if ($valImmo == ($dette/2) ) {
+    echo 2;
+} else if ($valImmo == $dette){
+    echo 3;
+}
 
 /* Existence de débiteurs (créances)
 Si Absence de créances mobilisables score=0
