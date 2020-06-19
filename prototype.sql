@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 18, 2020 at 08:10 PM
+-- Generation Time: Jun 19, 2020 at 10:05 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.1
 
@@ -200,43 +200,6 @@ INSERT INTO `critere` (`id`, `libelle`, `isActive`, `critereFilename`, `created_
 (61, 'Historique des plans de rÃ¨glement', 0, 'ScoreHistoriquePlansReglement', 1),
 (62, 'Immatriculation', 0, ' ScoreImmatriculation', 1),
 (63, 'Viabilite (entreprises) par le resultat', 0, 'scoreViabiliteParResultat', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `prenom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `role` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `username`, `role`) VALUES
-(1, 'Azzabi', 'Arafet', 'arafet.azzabi@gmail.com', '$2y$10$4DoR4H.nFWFqSim2lUG6KelTW0dhaLPk1hqtjYjxvLlt8KkzPYSlK', 'arafet', 'ADMIN'),
-(2, 'test', 'test', 'test', '$2y$10$4DoR4H.nFWFqSim2lUG6KelTW0dhaLPk1hqtjYjxvLlt8KkzPYSlK', 'test', 'ADMIN'),
-(3, 'test', 'test', 'test', '$2y$10$fv4d5InWwrC4CxGbwjV4b.nVUnXrrek3MjNuOZoezRHyOSOiJdAM6', 'test', 'ADMIN'),
-(4, 'dorra', 'dorra', 'seifallah.azzabi@gmail.com', '$2y$10$4tXWB2EaXvZwWVL4ltDCcuDzLGcE9VcyrJ7kJoR2UQFg/8IIImhvu', 'dorra', 'AGENT'),
-(5, 'azeaze', 'eaazeaez', 'arafet.azzabi@esprit.tn', '$2y$10$4DoR4H.nFWFqSim2lUG6KelTW0dhaLPk1hqtjYjxvLlt8KkzPYSlK', 'aze', 'AGENT'),
-(7, 'ccc', 'cccc', 'arafet.azzabi@bb.tn', '$2y$10$vHDNRGZddI5jRYzT3sP6MuM/nQKb9idSZL.qzpPTf7t254ZacWdPa', 'username', 'ADMIN'),
-(9, 'dddd', 'dddd', 'ddd@amazea.com', '$2y$10$iozzSsaSb78/TnEb0a7GneLFFw/gbDSA65otXOJl07EcsWMi0khNe', 'dddd', 'AGENT'),
-(10, 'test', 'test', 'tesaezazet', '$2y$10$2/PMY2/PKnoaRL7vJHisieORVFunBlKb7314Otxgnml37s2deOF82', 'test', 'ADMIN'),
-(14, 'aeaezaze', 'azeaze', 'arafet.azzabi@esprit.aaa', '$2y$10$JFxWosIpi6jE2mGduuBZuOb.4TcnlgsSKds0fBvIEtLwCkF9swBwi', 'aaaaava', 'AGENT'),
-(15, 'test', 'test', 'test@gmail.com', '$2y$10$Ke7pvQejX/lYf.tXvm6aZ./B732Fh2pV4FmIKsMx4Mn.L8fMa32Ri', 'test', 'AGENT'),
-(16, 'maa', 'maa', 'maa@aaa.Aaa', '$2y$10$EfslOz5g7B6QycAzfaY5feTTBGNYPNUdhYbb3izH3ZnFpbSVc5Lc6', 'maaa', 'AGENT'),
-(17, 'naaar', 'naaar', 'naaar.naaar@naaar.com', '$2y$10$V6bl4Bdpcn.NSxaKPhpXFeU.7vLD56fxYxji/gmWwrDVeLNb2Ruxu', 'naaar', 'ADMIN'),
-(18, 'test add', 'test add', 'testadd@esprit.tn', '$2y$10$AsTgeTJFq/Zw0kHhh30JTec1iXNPG/1agVM9nJ9nOFrhVcFpq9l4u', 'test-add', 'AGENT');
 
 --
 -- Constraints for dumped tables
