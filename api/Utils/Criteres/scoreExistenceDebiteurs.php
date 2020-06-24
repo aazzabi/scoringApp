@@ -3,9 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT");
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
 //header('Content-type: application/json');
-require '../../Models/Creance.php';
-require '../../Models/Contribuable.php';
-require '../../connect.php ';
+require_once getcwd().'../../Models/Creance.php';
+require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
@@ -26,11 +26,13 @@ $dette  = $contribuable['montantDetteFiscale'];
 
 if (($valImmo == 0 ) || ($valImmo == null)){
     echo 0;
-} else if ($valImmo == ($dette/4) ) {
+} else if ($valImmo <= ($dette/4) ) {// 0---> 25%
     echo 1;
-} else if ($valImmo == ($dette/2) ) {
+} else if (($valImmo > ($dette/4)) && ($valImmo <= ($dette/2) )) { // 25--->50%
     echo 2;
 } else if ($valImmo == $dette){
+    echo 4;
+} else {
     echo 3;
 }
 

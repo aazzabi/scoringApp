@@ -3,9 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT");
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
 //header('Content-type: application/json');
-require '../../Models/Creance.php';
-require '../../Models/Contribuable.php';
-require '../../connect.php ';
+require_once getcwd().'../../Models/Creance.php';
+require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../connect.php';
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
 $creanCtrl = new Creance($pdo);
@@ -18,16 +18,17 @@ $contribuable = $contribCtrl->getById($creance['idCtr']);
 $montant = $contribuable['loyersDeclares1'];
 $dette = $contribuable['montantDetteFiscale'];
 
-if ($montant == 0) {
+if (($montant == 0 ) || ($montant == null)){
     echo 0;
-} else if ($montant == ($dette / 4 )){
+} else if ($montant <= ($montant/4) ) {// 0---> 25%
     echo 1;
-} else if ($montant == ($dette / 2 )) { //50%
+} else if (($montant > ($dette/4)) && ($montant <= ($dette/2) )) { // 25--->50%
     echo 2;
-} else if ($montant == $dette) {
+} else if ($montant == $dette){
+    echo 4;
+} else {
     echo 3;
 }
-
 
 /* Existence de locataires
 Si Absence de loyers déclarés score=0

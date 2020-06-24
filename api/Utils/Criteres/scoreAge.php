@@ -7,9 +7,11 @@ require '../../Models/Creance.php';
 require '../../Models/Contribuable.php';
 require '../../connect.php ';
 
-
+//instanciation de la base de données
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
+
+//injection de la base de données dans la classe Creance()
 $creanCtrl = new Creance($pdo);
 $contribCtrl = new Contribuable($pdo);
 
@@ -29,16 +31,16 @@ $now = new DateTime();
 $diff = $dateDebut->diff($now)->format("%y");
 
 // Test statiques des scores possible
-if ($diff > 4) {
+if ($diff >= 4) {
     echo 0;
     //echo 1 * $critéreAnciennete['coefficient']
     //echo $choix['pondere'] * $critéreAnciennete['coefficient']
     //echo $choix['pondere'] * $choix['coefficient']
-} else if ((2 < $diff) and ($diff<= 3) ) {
+} else if ((2 <= $diff) and ($diff< 4) ) {
     echo 1;
-} else if ((1 < $diff) and ($diff<= 2) ) {
+} else if ((1 <= $diff) and ($diff< 2) ) {
     echo 2;
-}  else if (1 >= $diff)  {
+} else if (1 > $diff)  {
     echo 3;
 }
 // si ($diff<=2) score=0 sinon si (2<$diff<=5) score= 1 sinon si (5<$diff<=20) score=2 sinon ($diff>20) score=3

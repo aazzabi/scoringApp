@@ -3,9 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT");
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
 //header('Content-type: application/json');
-require '../../Models/Creance.php';
-require '../../Models/Contribuable.php';
-require '../../connect.php ';
+require_once getcwd().'../../Models/Creance.php';
+require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../connect.php ';
 
 
 $cnx = new connexion();
@@ -23,7 +23,7 @@ $contribuable = $contribCtrl->getById($creance['idCtr']);
 
 $mnt  = $contribuable['montantDesImpositionDeclareesSpontanement'];
 
- if ($mnt < 50 ) {
+ if ($mnt <= 50 ) {
     echo 0;
 } else if (($mnt > 50) && ($mnt<= 75 )) {
     echo 1;

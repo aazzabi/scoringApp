@@ -3,10 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT");
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
 //header('Content-type: application/json');
-require '../../Models/Creance.php';
-require '../../Models/Contribuable.php';
-require '../../connect.php ';
-
+require_once getcwd().'../../Models/Creance.php';
+require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
@@ -21,16 +20,18 @@ $creance = $creanCtrl->getById($id);
 //On récupére le contribuable by $creance->id
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
-$valImmob  = $contribuable['valeurImmobilisationsCorporellesEtIncorporelles'];
+$mnt  = $contribuable['valeurImmobilisationsCorporellesEtIncorporelles'];
 $dette  = $contribuable['montantDetteFiscale'];
 
-if (($valImmob ==0 ) || ($valImmob == null)){
+if (($mnt == 0 ) || ($mnt == null)){
     echo 0;
-} else if ($valImmob == ($dette/4) ) {
+} else if ($mnt <= ($dette/4) ) {// 0---> 25%
     echo 1;
-} else if ($valImmob == ($dette/2) ) {
+} else if (($mnt > ($dette/4)) && ($mnt <= ($dette/2) )) { // 25--->50%
     echo 2;
-} else if ($valImmob == $dette){
+} else if ($mnt == $dette){
+    echo 4;
+} else {
     echo 3;
 }
 
