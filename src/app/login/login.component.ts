@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from 'src/app/models/User';
 import {Router} from '@angular/router';
-import {DataserviceService} from 'src/app/services/dataservice.service';
 import {LoginService} from '../services/security/login.service';
 import {AlertService} from '../services/common/AlertService';
 
@@ -15,8 +14,7 @@ export class LoginComponent implements OnInit {
   model: any = {};
   returnUrl = '';
 
-  constructor(private dataService: DataserviceService,
-              private alertService: AlertService,
+  constructor(private alertService: AlertService,
               private loginService: LoginService,
               private router: Router) {
   }
@@ -32,7 +30,7 @@ export class LoginComponent implements OnInit {
           if (this.returnUrl) {
             this.router.navigateByUrl(this.returnUrl);
           } else {
-            this.router.navigate(['/contribuable']);
+            this.router.navigate(['/creance']);
           }
         },
         error => {

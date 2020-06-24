@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/User';
+import {Component, OnInit} from '@angular/core';
 
-import { Router } from '@angular/router';
-import { DataserviceService } from 'src/app/services/dataservice.service';
+import {Router} from '@angular/router';
+import {StorageService} from '../services/security/storage.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,14 +10,15 @@ import { DataserviceService } from 'src/app/services/dataservice.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private dataService: DataserviceService,private router:Router) {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
   }
- logout() {
-    this.dataService.deleteToken();
+
+  logout() {
+    StorageService.clear('token');
     this.router.navigate(['/login']);
 
-    }
+  }
 }

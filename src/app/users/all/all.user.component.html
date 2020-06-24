@@ -25,6 +25,7 @@
                 <th>Nom</th>
                 <th>Username</th>
                 <th>E-mail</th>
+                <th>Derniére connexion</th>
                 <th>Role</th>
                 <th>Actions</th>
               </tr>
@@ -34,6 +35,7 @@
                 <td>{{c.nom}} {{c.prenom}}</td>
                 <td>{{c.username}}</td>
                 <td>{{c.email}}</td>
+                <td>{{c.lastLogin}}</td>
                 <td>
                   <span *ngIf="c.role === 'ADMIN'" class="badge badge-pill badge-primary">{{c.role}}</span>
                   <span *ngIf="c.role === 'AGENT'" class="badge badge-pill badge-success">{{c.role}}</span>

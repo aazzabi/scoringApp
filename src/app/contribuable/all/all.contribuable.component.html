@@ -26,6 +26,7 @@
               <tr>
                 <th>Nom</th>
                 <th>Activité</th>
+                <th>Adresse</th>
                 <th>Forme juridique</th>
               </tr>
               </thead>
@@ -33,6 +34,7 @@
               <tr *ngFor="let c of contribuables; let i =index">
                 <td>{{c.libelle}}</td>
                 <td>{{c.activite}}</td>
+                <td>{{c.adresse}}</td>
                 <td>{{c.formeJuridique}}</td>
 <!--                <td>-->
 <!--                  <a class="btn btn-warning btn-sm"  (click)="edit(c)"><i class="fa fa-pencil"></i></a>-->

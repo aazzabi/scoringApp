@@ -14,6 +14,7 @@ foreach ($res as $row) {
         "id":"' . $row['id'] . '"
         ,"libelle":"' . $row['libelle'] . '"
         ,"formeJuridique":"' . $row['formeJuridique'] . '"
+        ,"adresse":"' . $row['adresse'] . '"
         ,"activite":"' . $row['activite'] . '"},';
   }
 $m = substr($m, 0, strlen($m) - 1);

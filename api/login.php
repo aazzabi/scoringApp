@@ -47,6 +47,11 @@ if (isset($postdata) && !empty($postdata)) {
         http_response_code(200);
         // generate jwt
         $jwt = JWT::encode($token, $key);
+
+        $now = date('Y-m-d H:i:s');
+        $req = "UPDATE user SET lastLogin='$now' where  id='$user->id'";
+        $res = $pdo->exec($req);
+
         echo json_encode(
                 array(
                     "message" => "Successful login.",
