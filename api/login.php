@@ -49,7 +49,7 @@ if (isset($postdata) && !empty($postdata)) {
         $jwt = JWT::encode($token, $key);
 
         $now = date('Y-m-d H:i:s');
-        $req = "UPDATE user SET lastLogin='$now' where  id='$user->id'";
+        $req = "UPDATE user SET lastLogin= NOW() where  id='$user->id'";
         $res = $pdo->exec($req);
 
         echo json_encode(
