@@ -25,7 +25,11 @@ $contribuable = $contribCtrl->getById($creance['idCtr']);
 $totalActif = $contribuable['montantTotalActif'];
 $capitauxP = $contribuable['montantCapitauxPropres'];
 $diff = ($totalActif - $capitauxP);
-$val = ( $diff/ $totalActif) * 100;
+if ($totalActif != 0) {
+    $val = ($diff / $totalActif) * 100;
+} else {
+    $val = ($diff / 1) * 100;
+}
 
 if ($val > 75) {
     echo 0;
