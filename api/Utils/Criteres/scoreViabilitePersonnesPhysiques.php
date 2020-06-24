@@ -3,9 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT");
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
 //header('Content-type: application/json');
-require '../../Models/Creance.php';
-require '../../Models/Contribuable.php';
-require '../../connect.php ';
+require_once getcwd().'../../Models/Creance.php';
+require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
@@ -28,14 +28,14 @@ $moyeRevenu = ($totalRevenu)/3;
 
 $dette  = $contribuable['montantDetteFiscale'];
 
-if ($moyeRevenu < $dette) {
-    echo 0;
-} else if ($moyeRevenu > ($dette*12)) {
+if ($moyeRevenu > ($dette*12)) {
     echo 3;
 } else if ($moyeRevenu > ($dette*3 )) {
     echo 2;
 } else if ($moyeRevenu > $dette) {
     echo 1;
+} else {
+    echo 0;
 }
 // glebt l ordre mta3hom 5ater sinon bech yhez l test lowel (moy> dette)=> echo 1
 

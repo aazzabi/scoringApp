@@ -3,9 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT");
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
 //header('Content-type: application/json');
-require '../../Models/Creance.php';
-require '../../Models/Contribuable.php';
-require '../../connect.php ';
+require_once getcwd() . '../../Models/Creance.php';
+require_once getcwd() . '../../Models/Contribuable.php';
+require_once getcwd() . '../../connect.php ';
 
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
@@ -20,31 +20,40 @@ $creance = $creanCtrl->getById($id);
 //On récupére le contribuable by $creance->id
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
-$montantResultatComptable1  = $contribuable['montantResultatComptable1'];
-$montantResultatComptable2  = $contribuable['montantResultatComptable2'];
-$montantResultatComptable3  = $contribuable['montantResultatComptable3'];
+$montantResultatComptable1 = $contribuable['montantResultatComptable1'];
+$montantResultatComptable2 = $contribuable['montantResultatComptable2'];
+$montantResultatComptable3 = $contribuable['montantResultatComptable3'];
 $totalResultat = $montantResultatComptable3 + $montantResultatComptable2 + $montantResultatComptable1;
-$moyeResultat = ($totalResultat)/3;
+$moyeResultat = ($totalResultat) / 3;
 
 
-$montantRevenuGlobalDeclare1  = $contribuable['montantRevenuGlobalDeclare1'];
-$montantRevenuGlobalDeclare2  = $contribuable['montantRevenuGlobalDeclare2'];
-$montantRevenuGlobalDeclare3  = $contribuable['montantRevenuGlobalDeclare3'];
+$montantRevenuGlobalDeclare1 = $contribuable['montantRevenuGlobalDeclare1'];
+$montantRevenuGlobalDeclare2 = $contribuable['montantRevenuGlobalDeclare2'];
+$montantRevenuGlobalDeclare3 = $contribuable['montantRevenuGlobalDeclare3'];
 $totalRevenu = $montantRevenuGlobalDeclare3 + $montantRevenuGlobalDeclare2 + $montantRevenuGlobalDeclare1;
-$moyeRevenu = ($totalRevenu)/3;
+$moyeRevenu = ($totalRevenu) / 3;
 
-$dette  = $contribuable['montantDetteFiscale'];
-
-if ($moyeResultat <= 0 ) {
-    echo 0;
-} else if ($moyeResultat > ($dette/3) ) {
-    echo 2;
-} else if ($moyeResultat > $dette ) {
-    echo 3;
-} else if ($moyeRevenu > $dette){
-    echo 4;
-} else if ($moyeResultat > 0 ) {
-    echo 1;
+$dette = $contribuable['montantDetteFiscale'];
+if ($moyeRevenu > $dette) { // +4 dans tout les cas
+    if ($moyeResultat <= 0) {
+        echo 4; //0 +4
+    } else if (($moyeResultat > 0) && ($moyeResultat < ($dette / 3))) {
+        echo 5; //1 +4
+    } else if (($moyeResultat >= ($dette / 3)) && ($moyeResultat < $dette)) {
+        echo 6; //2 +4
+    } else if ($moyeResultat >= $dette) {
+        echo 7; //3 +4
+    }
+} else { // dette > moyRevenu
+    if ($moyeResultat <= 0) {
+        echo 0;
+    } else if (($moyeResultat > 0) && ($moyeResultat < ($dette / 3))) {
+        echo 1;
+    } else if (($moyeResultat > ($dette / 3)) && ($moyeResultat < $dette)) {
+        echo 2;
+    } else if ($moyeResultat >= $dette) {
+        echo 3;
+    }
 }
 
 /* si Moyenne du résultat comptable déclaré au titre des 3 dernières années ≤ à 0
