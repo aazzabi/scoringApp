@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
@@ -20,6 +21,11 @@ $creance = $creanCtrl->getById($id);
 //On récupére le contribuable by $creance->id
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
+
 $origine = $creance['origine'];
 
 $search  = array('À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ');
@@ -29,15 +35,15 @@ $o = str_replace($search, $replace, utf8_encode(strtolower($origine)));
 if ($o == 'dgi : taxation d\'office des defaillants declaratifs') {
     echo 0;
 } elseif ($o == 'dgi : verification generale') {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 } elseif ($o == 'dgi : verification preliminaire') {
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } elseif ($o == 'creance non fiscale') {
-    echo 3;
+    echo 3 * $critere['coefficient'];
 } elseif ($o == 'dgi : verification ponctuelle') {
-    echo 3;
+    echo 3 * $critere['coefficient'];
 } elseif ($o == 'dgi : declaration sans paiement') {
-    echo 4;
+    echo 4 * $critere['coefficient'];
 }
 
 

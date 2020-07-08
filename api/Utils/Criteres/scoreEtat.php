@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
@@ -16,6 +17,10 @@ $id = $_GET['id'];
 $creance = $creanCtrl->getById($id);
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
 $etat = $contribuable['etat'];
 $search  = array('À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ');
 $replace = array('A', 'A', 'A', 'A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'O', 'O', 'O', 'O', 'O', 'U', 'U', 'U', 'U', 'Y', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'o', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'y', 'y');
@@ -24,13 +29,13 @@ $e = str_replace($search, $replace, utf8_encode(strtolower($etat)));
 if ($e == 'reglement judiciaire en cours') {
     echo 0;
 } else if ($e == 'cesse') {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 } else if ($e == 'reglement amiable en cours'){
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } else if ($e == 'ratissage' ){
-    echo 3;
+    echo 3 * $critere['coefficient'];
 } else if ($e == 'actif' ){
-    echo 4;
+    echo 4 * $critere['coefficient'];
 }
 
 /*

@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
@@ -20,6 +21,11 @@ $creance = $creanCtrl->getById($id);
 //On récupére le contribuable by $creance->id
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
+
 // on fixe les date auquel on va appliquer le test de difference
 $dateActionRecouvrementOffensive = new DateTime($contribuable['dateActionRecouvrementOffensive']);
 $now = new DateTime();
@@ -31,11 +37,11 @@ $diff = $dateActionRecouvrementOffensive->diff($now)->format("%y");
 if ($contribuable['dateActionRecouvrementOffensive'] == null) {
     echo 0;
 } else if (2 <= $diff) {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 } else if ((2 > $diff) && ($diff > 1)) {
-    echo 2;
+    echo 2 * $critere['coefficient'];
 }  else if ($diff < 1)  {
-    echo 3;
+    echo 3 * $critere['coefficient'];
 }
 /* Historique de l’action en recouvrement
 Si Aucune Date action en recouvrement offensive== null score =0

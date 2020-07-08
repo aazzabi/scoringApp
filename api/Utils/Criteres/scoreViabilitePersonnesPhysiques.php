@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
@@ -20,6 +21,11 @@ $creance = $creanCtrl->getById($id);
 //On récupére le contribuable by $creance->id
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
+
 $montantRevenuGlobalDeclare1  = $contribuable['montantRevenuGlobalDeclare1'];
 $montantRevenuGlobalDeclare2  = $contribuable['montantRevenuGlobalDeclare2'];
 $montantRevenuGlobalDeclare3  = $contribuable['montantRevenuGlobalDeclare3'];
@@ -29,11 +35,11 @@ $moyeRevenu = ($totalRevenu)/3;
 $dette  = $contribuable['montantDetteFiscale'];
 
 if ($moyeRevenu > ($dette*12)) {
-    echo 3;
+    echo 3 * $critere['coefficient'];
 } else if ($moyeRevenu > ($dette*3 )) {
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } else if ($moyeRevenu > $dette) {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 } else {
     echo 0;
 }

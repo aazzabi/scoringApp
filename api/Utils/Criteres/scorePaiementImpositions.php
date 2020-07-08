@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
@@ -20,6 +21,11 @@ $creance = $creanCtrl->getById($id);
 //On récupére le contribuable by $creance->id
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
+
 $nbEchNonRepect = $contribuable['nbrEcheancePlanReglementNonRespectee'];
 $nbPaiementCheqSansProvi = $contribuable['nbrPaiementParChequeSansProvision'];
 
@@ -33,12 +39,12 @@ if ($nbEchNonRepect > 1 ) {
     echo 0;
 } else if (($paiementEffectuesAuPlusTardDateExigibilite > 50)
     && ($paiementEffectuesAuPlusTardDateExigibilite<= 75 )) {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 } else if (($paiementEffectuesAuPlusTardDateExigibilite > 75)
     && ($paiementEffectuesAuPlusTardDateExigibilite<=90)) {
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } else if ($paiementEffectuesAuPlusTardDateExigibilite > 90){
-    echo 3;
+    echo 3 * $critere['coefficient'];
 }
 
 //paiement des impositions

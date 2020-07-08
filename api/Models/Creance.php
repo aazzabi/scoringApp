@@ -71,8 +71,7 @@ class Creance
     {
         $query = "SELECT c.* , ctr.libelle as libelleContribuable, ctr.id as idCtr 
                   FROM creance as c , contribuable  as ctr 
-                  where c.contribuable_id = ctr.id and
-                   c.id =:id  ";
+                  where c.contribuable_id = ctr.id and c.id =:id  ";
 
         try {
             $stmt = $this->conn->prepare($query);

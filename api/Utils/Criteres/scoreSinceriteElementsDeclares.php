@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 
@@ -21,16 +22,21 @@ $creance = $creanCtrl->getById($id);
 //On récupére le contribuable by $creance->id
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
+
 $mnt  = $contribuable['montantDesImpositionDeclareesSpontanement'];
 
  if ($mnt <= 50 ) {
     echo 0;
 } else if (($mnt > 50) && ($mnt<= 75 )) {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 } else if (($mnt > 75) && ($mnt<=90)) {
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } else if ($mnt > 90){
-    echo 3;
+    echo 3 * $critere['coefficient'];
 }
 /* Si  impositions déclarées spontanément < 50% score 0
 Sinon si 50% < Pourcentage des impositions déclarées spontanément < 75% score = 1

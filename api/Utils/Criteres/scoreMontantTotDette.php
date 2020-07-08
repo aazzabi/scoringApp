@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
@@ -16,6 +17,11 @@ $id = $_GET['id'];
 $creance = $creanCtrl->getById($id);
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
+
 $montantDette1 = $contribuable['montantDette1'];
 $montantDette2 = $contribuable['montantDette2'];
 $montantDette3 = $contribuable['montantDette3'];
@@ -26,13 +32,13 @@ $tot = $montantDette1 + $montantDette2 + $montantDette3 + $montantDette4;
 if ($tot > 10000000000) {
     echo 0;
 } else if ((1000000000 < $tot) && ($tot <= 10000000000) ) {//sinon si 1 M DT > dette > 10 M DT score= 1
-    echo 1;
+    echo 1 * $critere['coefficient'];
 } else if ((100000 < $tot) && ($tot <= 1000000000) ) { //sinon si 100000 DT > dette > 1 M DT score= 2
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } else if ((10000 < $tot) && ($tot <= 100000) ) {//sinon si 10000 DT > dette > 100000 DT score= 3
-    echo 3;
+    echo 3 * $critere['coefficient'];
 } else if ((1000 < $tot) && ($tot <= 10000) ) {//sinon si 1000 DT > Dette > 10 000 DT score= 4
-    echo 4;
+    echo 4 * $critere['coefficient'];
 } else if ( $tot <= 1000  ) {//sinon (Dette < 1000 DT ) score= 5
     echo 5;
 }

@@ -14,32 +14,35 @@ $id = $_GET['id'];
 
 $req = "SELECT c.id, c.libelle , c.isActive , c.critereFilename FROM `critere`as c where  c.isActive = true ";
 $res = $pdo->query($req);
-$m = '[';
-foreach ($res as $row) {
-    $m = $m . '{"id":"' . $row[0] . '"
+if ($res->rowCount() > 0) {
+    $m = '[';
+    foreach ($res as $row) {
+        $m = $m . '{"id":"' . $row[0] . '"
     ,"libelle":"' . $row['libelle'] . '"
     ,"isActive":"' . $row['isActive'] . '"
     ,"critereFilename":"' . $row['critereFilename']
-        . '"},';
-}
-$m = substr($m, 0, strlen($m) - 1);
-$m = $m . ']';
-
-$scoreEtat = 0;
-try {
-    foreach (json_decode($m, true) as $row) {
-//        echo $row['critereFilename'] .'-';
-        $v = executeScoreFile(getcwd().'\\Criteres\\'.$row['critereFilename'] . '.php');
-//        echo $v;
-        $scoreEtat += $v;
+            . '"},';
     }
-    echo $scoreEtat;
-} catch (Exception $e) {
-    echo $e;
-}
+    $m = substr($m, 0, strlen($m) - 1);
+    $m = $m . ']';
 
-function executeScoreFile($filename){
+    $scoreEtat = 0;
+    try {
+        foreach (json_decode($m, true) as $row) {
+//        echo $row['critereFilename'] .'-';
+            $v = executeScoreFile(getcwd() . '\\Criteres\\' . $row['critereFilename'] . '.php', $row['id']);
+            $scoreEtat += $v;
+        }
+        echo $scoreEtat;
+    } catch (Exception $e) {
+        echo $e;
+    }
+} else {
+    echo 0;
+}
+function executeScoreFile($filename, $v){
     ob_start();
+    $_GET['idCritere'] = $v;
     include $filename;
     $output = ob_get_contents();
     ob_end_clean();

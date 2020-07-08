@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
@@ -15,16 +16,20 @@ $id = $_GET['id'];
 $creance = $creanCtrl->getById($id);
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
 $caht = $contribuable['CahtAnnuel'];
 
 if ($caht <= 100000) {
     echo 0;
 } else if ((100000 < $caht) && ($caht <= 2000000) ) {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 } else if ((2000000 < $caht) && ($caht <= 200000000)) {
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } else if (200000000 < $caht) {
-    echo 3;
+    echo 3 * $critere['coefficient'];
 }
 
 

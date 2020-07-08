@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 
@@ -21,6 +22,11 @@ $creance = $creanCtrl->getById($id);
 //On récupére le contribuable by $creance->id
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
+
 // on fixe les date auquel on va appliquer le test de difference
 $act =  $contribuable['activite'] ;
 
@@ -31,9 +37,9 @@ $e = str_replace($search, $replace, utf8_encode(strtolower($act)));
 if ($e == "secteurs d'activite en difficulte") {
     echo 0;
 } else if ($e == "secteurs d'activite subventionnes") {
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } else {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 }
 
 /* Nature de l'activité exercée

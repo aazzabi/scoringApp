@@ -5,14 +5,18 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
 $creanCtrl = new Creance($pdo);
 $contribCtrl = new Contribuable($pdo);
+$critereCtrl = new Critere($pdo);
 
 $id = $_GET['id'];
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
 
 $creance = $creanCtrl->getById($id);
 $contribuable = $contribCtrl->getById($creance['idCtr']);
@@ -23,7 +27,7 @@ $mntSocial = $contribuable['montantTotalCotisationsSociales'];
 if (($mntDouane < 50) || ($mntSocial < 50 ) ){
     echo 0;
 } else {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 }
 
 /*

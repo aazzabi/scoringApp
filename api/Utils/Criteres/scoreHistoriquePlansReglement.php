@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 
@@ -18,12 +19,17 @@ $id = $_GET['id'];
 $creance = $creanCtrl->getById($id);
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
+
 $nbr =  $contribuable['plansDeReglement'] ;
 
 if ($nbr >= 1) {
     echo 0;
 } else if ($nbr == 0 ) {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 }
 
 /* Plan de règlement

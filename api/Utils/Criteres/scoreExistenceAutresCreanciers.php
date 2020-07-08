@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
@@ -14,6 +15,11 @@ $contribCtrl = new Contribuable($pdo);
 $id = $_GET['id'];
 $creance = $creanCtrl->getById($id);
 $contribuable = $contribCtrl->getById($creance['idCtr']);
+
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
 
 $montant = $contribuable['montantDetteFiscale'];
 
@@ -26,11 +32,11 @@ $totalDettes = $montantDette1 + $montantDette2 + $montantDette3 + $montantDette4
 if ($montant <= ($totalDettes*0.25)) {
     echo 0;
 } else if ((($totalDettes*0.25) < $montant) && ($montant <= ($totalDettes*0.5)) ) {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 } else if ((($totalDettes*0.5) < $montant) && ($montant <= ($totalDettes*0.75))) {
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } else if (($totalDettes*0.75) > $montant) {
-    echo 3;
+    echo 3 * $critere['coefficient'];
 }
 
 /* si Dette fiscale  moins de 25 % * total des dettes score=0

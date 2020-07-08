@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 
 $cnx = new connexion();
@@ -15,17 +16,20 @@ $contribCtrl = new Contribuable($pdo);
 $id = $_GET['id'];
 $creance = $creanCtrl->getById($id);
 $contribuable = $contribCtrl->getById($creance['idCtr']);
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
 
 $decla = $contribuable['declarationDeposees'];
 
 if ($decla <= 50) {
     echo 0;
 } else if ((50 < $decla) && ($decla <= 75) ) {
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } else if ((75 < $decla) && ($decla <= 90)) {
-    echo 3;
+    echo 3 * $critere['coefficient'];
 } else if (90 < $decla) {
-    echo 4;
+    echo 4 * $critere['coefficient'];
 }
 /* si declarations deposees <50% score=0
 *sinon si 50%<declarations deposees <75% score=2

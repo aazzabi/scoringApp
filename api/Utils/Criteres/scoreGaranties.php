@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 //header('Content-type: application/json');
 require_once getcwd().'../../Models/Creance.php';
 require_once getcwd().'../../Models/Contribuable.php';
+require_once getcwd().'../../Models/Critere.php';
 require_once getcwd().'../../connect.php ';
 $cnx = new connexion();
 $pdo = $cnx->CNXbase();
@@ -15,6 +16,11 @@ $id = $_GET['id'];
 $creance = $creanCtrl->getById($id);
 $contribuable = $contribCtrl->getById($creance['idCtr']);
 
+$critereCtrl = new Critere($pdo);
+$idCritere = $_GET['idCritere'];
+$critere = $critereCtrl->getById($idCritere);
+
+
 $cautionBancaire = $contribuable['cautionBancaire']; // string
 $autresGaranties = $contribuable['autresGaranties']; // string
 $garantiePrivSurImmeuble = $contribuable['garantiePrivilegeSurImmeuble']; // string
@@ -22,11 +28,11 @@ $garantiePrivSurImmeuble = $contribuable['garantiePrivilegeSurImmeuble']; // str
 if (($autresGaranties == '' ) && ($garantiePrivSurImmeuble == '') && ($cautionBancaire == '')) {
     echo 0;
 } else if ( ($garantiePrivSurImmeuble != '') ) {
-    echo 2;
+    echo 2 * $critere['coefficient'];
 } else if ($cautionBancaire != '' ) {
-    echo 3;
+    echo 3 * $critere['coefficient'];
 } else {
-    echo 1;
+    echo 1 * $critere['coefficient'];
 }
 
 /* Garanties
