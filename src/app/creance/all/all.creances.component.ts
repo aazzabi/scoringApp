@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CreancesService} from '../../services/manager/CreancesService';
 import * as XLSX from 'xlsx';
 
@@ -32,10 +31,10 @@ export class AllCreancesComponent implements OnInit {
     this.creances = this.route.snapshot.data.creances;
     console.log(this.creances, 'creances');
     this.creances.forEach((c) => {
-      this.creancesService.getScore(c.id).subscribe((data)=> {
+      this.creancesService.getScore(c.id).subscribe((data) => {
         c.score = data;
       });
-    })
+    });
     console.log(this.creances, 'creances');
   }
 
@@ -43,7 +42,29 @@ export class AllCreancesComponent implements OnInit {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
-      processing: true
+      processing: true,
+      language: {
+        emptyTable : 'Aucune donnée disponible dans le tableau',
+        info: 'Affichage de l\'élément _START_ à _END_ sur _TOTAL_ éléments',
+        infoEmpty: 'Affichage de l\'élément 0 à 0 sur 0 élément',
+        infoFiltered: '(filtré à partir de _MAX_ éléments au total)',
+        infoPostFix: '',
+        lengthMenu: 'Afficher _MENU_ éléments',
+        loadingRecords: 'Chargement...',
+        processing: 'Traitement...',
+        search: 'Rechercher :',
+        zeroRecords: 'Aucun élément correspondant trouvé',
+        paginate: {
+          first: 'Premier',
+          last: 'Dernier',
+          next: 'Suivant',
+          previous: 'Précédent'
+        },
+        aria: {
+          sortAscending: ': activer pour trier la colonne par ordre croissant',
+          sortDescending: ': activer pour trier la colonne par ordre décroissant'
+        },
+      }
     };
   }
 

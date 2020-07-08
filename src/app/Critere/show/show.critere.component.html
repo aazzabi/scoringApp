@@ -8,9 +8,11 @@
               <h3>#{{critere.id}} {{critere.libelle}}</h3>
             </div>
             <div class="col-md-6 text-right" *ngIf="critere.isActive == false  && (loggedUser.role === 'ADMIN')">
+              <a class="btn btn-secondary" routerLink="/critere/all">Retour a la liste</a>
               <button class="btn btn-success" (click)="activateCritere(critere.id)">Activer</button>
             </div>
             <div class="col-md-6 text-right" *ngIf="critere.isActive == true && (loggedUser.role === 'ADMIN')">
+              <a class="btn btn-secondary" routerLink="/critere/all">Retour a la liste</a>
               <button class="btn btn-danger" (click)="desactivateCritere(critere.id)">Désactiver</button>
             </div>
           </div>
