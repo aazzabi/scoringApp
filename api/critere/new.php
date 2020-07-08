@@ -20,6 +20,9 @@ if (isset($postdata) && !empty($postdata)) {
     $critere->libelle = $request->libelle;
     $critere->isActive = $request->isActive;
     $critere->critereFilename = $request->critereFilename;
+    $critere->coefficient = $request->coefficient;
     $critere->createdBy = $request->createdBy;
+
+
     echo $critere->create();
 }

@@ -44,74 +44,20 @@
                 Veuillez renseigner ce champ
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="form-control-label">Coefficient</label>
+                <input type="number" class="form-control form-control-alternative" placeholder="Coefficient"
+                       name="coefficient" formControlName="coefficient"/>
+              </div>
+              <div *ngIf="critere.controls.coefficient.touched && critere.controls['coefficient'].errors?.required">
+                Veuillez renseigner ce champ
+              </div>
+            </div>
+            <div class="col-md-1">
               <div class="form-group">
                 <label class="form-control-label">Active ?</label><br>
                 <input _ngcontent-c2="" id="checkbox1" type="checkbox" name="isActive" formControlName="isActive">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div formArrayName="choices">
-              <div *ngFor="let cx of getChoices(critere) ; let i=index">
-                <div [formGroupName]="i">
-                  <fieldset class="fdCard">
-                    <legend>
-                      <div style="font-size: 15px">
-                        Choix N°{{i + 1}}
-                        <button *ngIf="getChoices(critere).length > 1" (click)="removeChoice(i)" class="btn btn-sm btn-danger">
-                          <i class="fa fa-trash"></i></button>
-                      </div>
-                    </legend>
-                    <div class="row">
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="form-control-label">libelle choix</label>
-                          <input type="text" class="form-control form-control-alternative" placeholder="libelle"
-                                 name="libelle" formControlName="libelle"/>
-                        </div>
-                        <div *ngIf="cx.controls.libelle.touched && cx.controls['libelle'].errors?.required">
-                          Veuillez renseigner ce champ
-                        </div>
-                      </div>
-                      <div class="col-md-2">
-                        <div class="form-group">
-                          <label class="form-control-label">note</label>
-                          <input type="number" class="form-control form-control-alternative" placeholder="note"
-                                 name="note" formControlName="note"/>
-                        </div>
-                        <div *ngIf="cx.controls.note.touched && cx.controls['note'].errors?.required">
-                          Veuillez renseigner ce champ
-                        </div>
-                      </div>
-                      <div class="col-md-2">
-                        <div class="form-group">
-                          <label class="form-control-label">coefficient</label>
-                          <input type="number" class="form-control form-control-alternative" placeholder="coefficient"
-                                 name="coefficient" formControlName="coefficient"/>
-                        </div>
-                        <div *ngIf="cx.controls.coefficient.touched && cx.controls['coefficient'].errors?.required">
-                          Veuillez renseigner ce champ
-                        </div>
-                      </div>
-                      <div class="col-md-2">
-                        <div class="form-group">
-                          <label class="form-control-label">Pondéré</label>
-                          <input type="number" class="form-control form-control-alternative" placeholder="pondere"
-                                 name="pondere" formControlName="pondere"/>
-                        </div>
-                        <div *ngIf="cx.controls.pondere.touched && cx.controls['pondere'].errors?.required">
-                          Veuillez renseigner ce champ
-                        </div>
-                      </div>
-                      <div class="col-md-1">
-                        <button (click)="addChoice()" class="point btn btn-secondary">
-                          <i class="fa fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </fieldset>
-                </div>
               </div>
             </div>
           </div>

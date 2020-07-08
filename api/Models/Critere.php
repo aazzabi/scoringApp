@@ -18,6 +18,7 @@ class Critere
     public $isActive;
     public $critereFilename;
     public $createdBy;
+    public $coefficient;
 
     // constructor
     public function __construct($db)
@@ -29,7 +30,7 @@ class Critere
     function create()
     {
         // insert query
-        $query = "INSERT INTO critere (libelle, isActive, critereFilename, created_by_id) values (:libelle,:isActive,:critereFilename, :createdBy)";
+        $query = "INSERT INTO critere (libelle, isActive, critereFilename, coefficient, created_by_id) values (:libelle,:isActive,:critereFilename, :coefficient, :createdBy)";
 
         // prepare the query
         $stmt = $this->conn->prepare($query);
@@ -39,17 +40,22 @@ class Critere
         $this->isActive = htmlspecialchars(strip_tags($this->isActive));
         $this->critereFilename = htmlspecialchars(strip_tags($this->critereFilename));
         $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
+        $this->coefficient = htmlspecialchars(strip_tags($this->coefficient));
 
         // bind the values
         $stmt->bindParam(':critereFilename', $this->critereFilename);
         $stmt->bindParam(':libelle', $this->libelle);
         $stmt->bindParam(':isActive', $this->isActive);
+        $stmt->bindParam(':coefficient', $this->coefficient);
         $stmt->bindParam(':createdBy', $this->createdBy);
+
+        $file = '..\Utils\Criteres\\'.$this->critereFilename.'.php';
+        $ourFileHandle = fopen($file, 'a');
 
         // execute the query, also check if query was successful
         if ($stmt->execute()) {
            $last_id = (int) $this->conn->lastInsertId();
-           return json_encode(array('message' => 'Le critere a été crée avec succés', 'status' => 200, 'lastInsertId' => $last_id));
+           return json_encode(array('file'=> $file,'message' => 'Le critere a été crée avec succés', 'status' => 200, 'lastInsertId' => $last_id));
         }
         return json_encode(array('message' => 'Un probléme a survenu lors de la création du critére', 'status' => 400));
     }
@@ -84,7 +90,7 @@ class Critere
     public function update($c)
     {
         $req = "UPDATE critere
-              SET libelle='$c->libelle',isActive='$c->isActive',critereFilename='$c->critereFilename'  
+              SET libelle='$c->libelle',isActive='$c->isActive',coefficient='$c->coefficient',critereFilename='$c->critereFilename'  
               WHERE id='$c->id'";
         $res = $this->conn->exec($req);
         echo $res;

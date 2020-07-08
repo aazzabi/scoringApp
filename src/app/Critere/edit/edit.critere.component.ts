@@ -35,71 +35,20 @@ export class EditCritereComponent implements OnInit {
     this.critereEdit = new FormGroup({
       libelle: new FormControl('', [Validators.required]),
       critereFilename: new FormControl('', [Validators.required]),
+      coefficient: new FormControl('', [Validators.required]),
       isActive: new FormControl( bool , []),
-      choices: new FormArray([])
     });
     this.initializeCritereForm();
-    // this.critereEdit.get('choices').push(this.initFirstEmptyChoices());
   }
 
   // pour initialiser le formulaire
   initializeCritereForm() {
+    console.log(this.critere.coefficient, 'this.critere.coefficient')
     this.critereEdit.get('libelle').setValue(this.critere.libelle);
     this.critereEdit.get('critereFilename').setValue(this.critere.critereFilename);
+    this.critereEdit.get('coefficient').setValue(this.critere.coefficient);
     this.critereEdit.get('isActive').setValue(this.critere.isActive);
-    this.initializeChoices();
   }
-
-  // pour initialiser les formulaire de choix
-  initializeChoices() {
-    this.choix.forEach(cx => {
-      this.choicesControl.push(new FormGroup({
-        id: new FormControl(cx.id),
-        libelle: new FormControl(cx.libelle, Validators.required),
-        note: new FormControl(cx.note, Validators.required),
-        coefficient: new FormControl(cx.coefficient, Validators.required),
-        pondere: new FormControl(cx.pondere, Validators.required),
-      }));
-    });
-  }
-
-  // intialize first empty form , ynajem yab9a feragh 3adi
-  initFirstEmptyChoices() {
-    return new FormGroup({
-      libelle: new FormControl(''),
-      note: new FormControl(''),
-      coefficient: new FormControl(''),
-      pondere: new FormControl(''),
-    });
-  }
-
-  // initBed
-  initEmptyChoices() {
-    return new FormGroup({
-      libelle: new FormControl('', Validators.required),
-      note: new FormControl('', Validators.required),
-      coefficient: new FormControl('', Validators.required),
-      pondere: new FormControl('', Validators.required),
-    });
-  }
-
-
-  get choicesControl() {
-    return this.critereEdit.get('choices') as FormArray;
-  }
-
-  getChoices(form) {
-    return form.controls.choices.controls;
-  }
-
-  addChoice() {
-    return this.choicesControl.push(this.initEmptyChoices());
-  }
-
-  removeChoice(i: number) {
-    return this.choicesControl.removeAt(i);
-  }
-
 
   confirmEdit($event: MouseEvent) {
     console.log(this.critereEdit.value.isActive, 'form');
@@ -122,28 +71,6 @@ export class EditCritereComponent implements OnInit {
         console.log(error);
       });
 
-    this.critereEdit.value.choices.forEach((v) => {
-      if (v.id) {
-        this.choixService.edit({
-          // @ts-ignore
-          critere: this.critere.id,
-          id: v.id,
-          libelle: v.libelle,
-          note: v.note,
-          pondere: v.pondere,
-          coefficient: v.coefficient,
-        }).subscribe((responseCx) => {}, errorCx => {});
-      } else {
-        this.choixService.new({
-          // @ts-ignore
-          critere: this.critere.id,
-          libelle: v.libelle,
-          note: v.note,
-          pondere: v.pondere,
-          coefficient: v.coefficient,
-        }).subscribe((responseCx) => {}, errorCx => {});
-      }
-    });
     this.router.navigateByUrl('/critere/all');
 
   }

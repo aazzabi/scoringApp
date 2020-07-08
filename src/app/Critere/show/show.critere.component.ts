@@ -27,7 +27,6 @@ export class ShowCritereComponent implements OnInit  {
     private router: Router,
   ) {
     this.critere = this.route.snapshot.data.critere;
-    this.choix = this.route.snapshot.data.choix;
     this.loggedUser = StorageService.decodeToken().data;
   }
 

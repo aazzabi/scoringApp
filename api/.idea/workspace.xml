@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec6d730b-559f-4beb-baa1-863c309f5506" name="Default Changelist" comment="" />
+    <list default="true" id="ec6d730b-559f-4beb-baa1-863c309f5506" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Models/Critere.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Critere.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/critere/new.php" beforeDir="false" afterPath="$PROJECT_DIR$/critere/new.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,16 +47,16 @@
     <session id="1088246424">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.11" value="3" />
+          <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -61,7 +64,7 @@
           <entry key="env" value="1" />
           <entry key="json" value="5" />
           <entry key="lock" value="1" />
-          <entry key="php" value="305" />
+          <entry key="php" value="309" />
           <entry key="sql" value="2" />
           <entry key="ts" value="6" />
         </counts>
@@ -69,7 +72,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="6" />
-          <entry key="PHP" value="305" />
+          <entry key="PHP" value="309" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SQL" value="2" />
           <entry key="TypeScript" value="6" />
@@ -79,14 +82,14 @@
         <counts>
           <entry key="env" value="20" />
           <entry key="json" value="42" />
-          <entry key="php" value="11100" />
+          <entry key="php" value="11252" />
           <entry key="ts" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="42" />
-          <entry key="PHP" value="11059" />
+          <entry key="PHP" value="11211" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="SQL" value="41" />
           <entry key="TypeScript" value="3" />
@@ -107,18 +110,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
-              <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/creance/all.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
+            <state>
               <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
@@ -127,42 +121,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/all.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state>
               <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-134">
-              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+            <state relative-caret-position="156">
+              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Contribuable.php">
+        <entry file="file://$PROJECT_DIR$/Models/Critere.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-360" />
+            <state relative-caret-position="372">
+              <caret line="56" column="56" lean-forward="true" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
+            </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/contribuables/all.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreOrigine.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+            <state relative-caret-position="374">
+              <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreAnciennete.php">
+        <entry file="file://$PROJECT_DIR$/critere/new.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="25" column="9" selection-start-line="25" selection-end-line="26" />
+            <state relative-caret-position="425">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Utils/calculateAllScores.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="33" column="18" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -170,7 +175,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
+            <state>
               <caret line="31" column="26" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="26" />
             </state>
           </provider>
@@ -257,7 +262,6 @@
         <option value="$PROJECT_DIR$/critere/edit.php" />
         <option value="$PROJECT_DIR$/Utils/Criteres/chiffreAffaire.php" />
         <option value="$PROJECT_DIR$/choix/all.php" />
-        <option value="$PROJECT_DIR$/critere/new.php" />
         <option value="$PROJECT_DIR$/Utils/Criteres/scoreFormeJuridique (2).php" />
         <option value="$USER_HOME$/Downloads/critere.sql" />
         <option value="$PROJECT_DIR$/Utils/Criteres/scoreFormeJuridique.php" />
@@ -267,7 +271,6 @@
         <option value="$PROJECT_DIR$/critere/configFilnameExists.php" />
         <option value="$PROJECT_DIR$/Utils/Criteres/ScorePaiementImpositions.php" />
         <option value="$PROJECT_DIR$/Models/Contribuable.php" />
-        <option value="$PROJECT_DIR$/Models/Critere.php" />
         <option value="$PROJECT_DIR$/Models/Creance.php" />
         <option value="$PROJECT_DIR$/creance/all.php" />
         <option value="$PROJECT_DIR$/Utils/Criteres/scoreEtat.php" />
@@ -305,6 +308,8 @@
         <option value="$PROJECT_DIR$/Utils/Criteres/scoreAnciennete.php" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/contribuables/all.php" />
+        <option value="$PROJECT_DIR$/critere/new.php" />
+        <option value="$PROJECT_DIR$/Models/Critere.php" />
       </list>
     </option>
   </component>
@@ -334,6 +339,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -344,18 +350,28 @@
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="contribuables" type="462c0819:PsiDirectoryNode" />
+              <item name="critere" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+              <item name="Criteres" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -419,16 +435,18 @@
       <workItem from="1592989332015" duration="10088000" />
       <workItem from="1593011177675" duration="2340000" />
       <workItem from="1593018669422" duration="873000" />
+      <workItem from="1594194121639" duration="5573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111824000" />
+    <option name="totallyTimeSpent" value="117397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20872483" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21140939" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -442,7 +460,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32907802" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26666668" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.26666668" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -542,20 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/critere/new.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Critere.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/critere/delete.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -584,20 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
           <caret line="17" column="38" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreOrigine.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/calculateAllScores.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="33" column="18" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -743,55 +733,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
+        <state>
           <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreAnciennete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="25" column="9" selection-start-line="25" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/creance/all.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
+        <state>
           <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/users/all.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state>
           <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Contribuable.php">
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreAnciennete.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360" />
+        <state>
+          <caret line="25" column="9" selection-start-line="25" selection-end-line="26" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contribuables/all.php">
+    <entry file="file://$PROJECT_DIR$/users/edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        <state>
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-134">
-          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+        <state relative-caret-position="156">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contribuables/all.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Contribuable.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/calculateAllScores.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="33" column="18" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/critere/new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Critere.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="56" column="56" lean-forward="true" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/Criteres/scoreOrigine.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
         </state>
       </provider>
     </entry>
