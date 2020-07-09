@@ -14,6 +14,8 @@ export class EditCritereComponent implements OnInit {
   critere: any;
   choix: any[];
   critereEdit: any;
+  boolActive: any;
+  isActiveEdit: any;
 
   constructor(private critereService: CriteresService,
               private route: ActivatedRoute,
@@ -47,23 +49,25 @@ export class EditCritereComponent implements OnInit {
     this.critereEdit.get('libelle').setValue(this.critere.libelle);
     this.critereEdit.get('critereFilename').setValue(this.critere.critereFilename);
     this.critereEdit.get('coefficient').setValue(this.critere.coefficient);
-    this.critereEdit.get('isActive').setValue(this.critere.isActive);
+    if (this.critere.isActive == 1 ) {
+        this.boolActive = true;
+    } else {
+      this.boolActive = false;
+    }
   }
 
   confirmEdit($event: MouseEvent) {
-    console.log(this.critereEdit.value.isActive, 'form');
-    let isvalide;
-    if ((this.critereEdit.value.isActive === 0) || (this.critereEdit.value.isActive === false)  ) {
-      isvalide = 0;
-    } else if (this.critereEdit.value.isActive === 1 || (this.critereEdit.value.isActive === true)  ) {
-      isvalide = 1;
+    if ( (this.critereEdit.value.isActive === 'false') || (this.critereEdit.value.isActive === false) ) {
+      this.isActiveEdit = 0;
+    } else if ( (this.critereEdit.value.isActive === 'true') || (this.critereEdit.value.isActive === true))  {
+      this.isActiveEdit = 1;
     }
-    console.log(isvalide , 'form');
     this.critereService.edit({
       id: this.critere.id,
       libelle: this.critereEdit.value.libelle,
+      coefficient: this.critereEdit.value.coefficient,
       critereFilename: this.critereEdit.value.critereFilename,
-      isActive: isvalide,
+      isActive: this.isActiveEdit,
     }).subscribe(
       response => {
         console.log(response);

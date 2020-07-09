@@ -39,17 +39,14 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label class="form-control-label">Coefficient</label>
-                <input type="number" class="form-control form-control-alternative" placeholder="Coefficient"
+                <input type="number" class="form-control form-control-alternative" placeholder=""
                        name="coefficient" formControlName="coefficient"/>
-              </div>
-              <div *ngIf="critere.controls.coefficient.touched && critere.controls['coefficient'].errors?.required">
-                Veuillez renseigner ce champ
               </div>
             </div>
             <div class="col-md-1">
               <div class="form-group">
                 <label class="form-control-label">Active ?</label><br>
-                <input type="checkbox" name="isActive" formControlName="isActive" [checked]='critere.isActive == true'>
+                <input type="checkbox" name="isActive" formControlName="isActive" [(ngModel)]="boolActive" [checked]='boolActive'>
               </div>
             </div>
           </div>

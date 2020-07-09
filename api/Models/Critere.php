@@ -62,7 +62,7 @@ class Critere
 
     public function getById($i)
     {
-        $query = "SELECT c.* , u.* 
+        $query = "SELECT c.* , u.*
                     FROM critere as c, user as u where c.created_by_id = u.id and c.id=:i";
 
         try {
@@ -90,7 +90,7 @@ class Critere
     public function update($c)
     {
         $req = "UPDATE critere
-              SET libelle='$c->libelle',isActive='$c->isActive',coefficient='$c->coefficient',critereFilename='$c->critereFilename'  
+              SET libelle='$c->libelle',isActive='$c->isActive',coefficient='$c->coefficient',critereFilename='$c->critereFilename'
               WHERE id='$c->id'";
         $res = $this->conn->exec($req);
         echo $res;
